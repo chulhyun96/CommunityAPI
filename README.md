@@ -34,6 +34,6 @@
   - [ ] 댓글 작성 성공 시, 생성된 댓글의 ID와 관련정보가 반환된다.
   
 ## ERD
-![img.png](img.png)
+![img_1.png](img_1.png)
 
 
