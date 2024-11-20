@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.config;
+package com.cheolhyeon.communityapi.module.auth.security;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
