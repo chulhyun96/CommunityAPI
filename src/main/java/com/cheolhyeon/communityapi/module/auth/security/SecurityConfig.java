@@ -13,11 +13,12 @@ import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.util.Collections;
 
+import static com.cheolhyeon.communityapi.module.auth.security.SecurityConst.HTTP_LOCALHOST_3000;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    private static final String HTTP_LOCALHOST_3000 = "http://localhost:3000";
-    private static final String ALL_PATH = "*";
+    private static final String ROOT_PATH_PATTERN = "*";
     private static final String[] PUBLIC_URIS = {"/", "/login", "/signup"};
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String[] ADMIN_URI = {"/admin/**"};
@@ -39,8 +40,8 @@ public class SecurityConfig {
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                         CorsConfiguration configuration = new CorsConfiguration();
                         configuration.setAllowCredentials(true);
-                        configuration.setAllowedHeaders(Collections.singletonList(ALL_PATH));
-                        configuration.setAllowedMethods(Collections.singletonList(ALL_PATH));
+                        configuration.setAllowedHeaders(Collections.singletonList(ROOT_PATH_PATTERN));
+                        configuration.setAllowedMethods(Collections.singletonList(ROOT_PATH_PATTERN));
                         configuration.setAllowedOrigins(Collections.singletonList(HTTP_LOCALHOST_3000));
                         configuration.setMaxAge(3600L);
                         configuration.setExposedHeaders(Collections.singletonList(AUTHORIZATION_HEADER));
