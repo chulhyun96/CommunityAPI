@@ -1,11 +1,11 @@
-package com.cheolhyeon.communityapi.module.auth.security.jwt;
+package com.cheolhyeon.communityapi.module.auth.security;
 
 import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
 import com.cheolhyeon.communityapi.module.auth.dto.ErrorResponse;
+import com.cheolhyeon.communityapi.module.auth.security.jwt.JWTProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +21,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.*;
 
@@ -31,8 +32,12 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     private final ObjectMapper objectMapper;
     private final JWTProvider jwtProvider;
 
+    public static CustomAuthenticationFilter create(AuthenticationManager authenticationManager, ObjectMapper objectMapper, JWTProvider jwtProvider) {
+        return new CustomAuthenticationFilter(authenticationManager, objectMapper, jwtProvider);
+    }
+
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
         AuthRequest authRequest = getAuthRequest(request);
 
         String username = authRequest.getUsername();
@@ -45,18 +50,19 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult){
         CustomUserDetails principal = (CustomUserDetails) authResult.getPrincipal();
         String token = jwtProvider.generateToken(principal.getUsername(), getRole(authResult));
         response.addHeader(AUTHORIZATION_HEADER,"Bearer " + token);
     }
 
     @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        response.getWriter().write(objectMapper.writeValueAsString(
-                ErrorResponse.create(HttpStatus.BAD_REQUEST,"계정이 존재하지 않습니다.")
-        ));
+        response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+
+        ErrorResponse errorResponse = ErrorResponse.create(HttpStatus.BAD_REQUEST, "계정이 존재하지 않습니다.");
+        response.getWriter().write(objectMapper.writeValueAsString(errorResponse));
     }
 
     private static String getRole(Authentication authResult) {
