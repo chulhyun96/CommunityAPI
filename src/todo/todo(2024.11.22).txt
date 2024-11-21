@@ -1,0 +1,4 @@
+TODO -> (2024.11.22) JWTPerRequestFilter(해당 사용자의 토큰이 유효한지) 마저 구현하기,
+ CustomUserDetailsService(사용자가 입력한 정보를 기반을 인증) 마저 구현하기,
+ ErrorState, ErrorMessage를 담을 클래스 구현하기,
+ Security, JWT 코드 관련 리팩토링하기
