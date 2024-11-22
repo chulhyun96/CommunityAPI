@@ -25,6 +25,10 @@ import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.AU
 public class JWTPerRequestFilter extends OncePerRequestFilter {
     private final JWTProvider jwtProvider;
 
+    public static JWTPerRequestFilter create(JWTProvider jwtProvider) {
+        return new JWTPerRequestFilter(jwtProvider);
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
