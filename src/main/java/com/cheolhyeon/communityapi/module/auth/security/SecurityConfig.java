@@ -1,5 +1,6 @@
 package com.cheolhyeon.communityapi.module.auth.security;
 
+import com.cheolhyeon.communityapi.module.auth.security.jwt.JWTPerRequestFilter;
 import com.cheolhyeon.communityapi.module.auth.security.jwt.JWTProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -49,15 +50,16 @@ public class SecurityConfig {
         applySessionPolicy(http);
         authorizeHttpRequestMatchers(http);
 
-        addFilterAt(http, CustomAuthenticationFilter.create(
+        addFilter(http, JWTPerRequestFilter.create(jwtProvider),CustomAuthenticationFilter.create(
                         authenticationManager(configuration), objectMapper, jwtProvider)
         );
 
         return http.build();
     }
 
-    private void addFilterAt(HttpSecurity http,
-                             CustomAuthenticationFilter customAuthenticationFilter) {
+    private void addFilter(HttpSecurity http,
+                           JWTPerRequestFilter jwtPerRequestFilter, CustomAuthenticationFilter customAuthenticationFilter) {
+        http.addFilterBefore(jwtPerRequestFilter, CustomAuthenticationFilter.class);
         http.addFilterAt(customAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
