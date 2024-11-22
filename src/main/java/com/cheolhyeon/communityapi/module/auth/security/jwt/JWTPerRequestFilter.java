@@ -52,11 +52,11 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     private Authentication createAuthentication(String token) {
         String username = jwtProvider.getUsername(token);
         AuthorityPolicy role = AuthorityPolicy.fromString(jwtProvider.getRoleAsString(token));
-        Users userEntity = Users.builder()
-                .username(username)
-                .role(role)
-                .build();
-        CustomUserDetails customUser = CustomUserDetails.from(userEntity);
+
+        CustomUserDetails customUser = CustomUserDetails.from(
+                Users.getAuthenticatedUser(username, role)
+        );
+
         return new UsernamePasswordAuthenticationToken(customUser, null, customUser.getAuthorities());
     }
 
