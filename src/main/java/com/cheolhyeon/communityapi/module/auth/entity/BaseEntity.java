@@ -18,7 +18,4 @@ public abstract class BaseEntity {
     @LastModifiedDate
     private LocalDate updatedAt;
 
-    private BaseEntity() {
-        throw new AssertionError(); // 생성 금지
-    }
 }
