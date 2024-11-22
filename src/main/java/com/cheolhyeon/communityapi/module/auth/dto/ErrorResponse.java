@@ -1,5 +1,6 @@
 package com.cheolhyeon.communityapi.module.auth.dto;
 
+import com.cheolhyeon.communityapi.module.auth.consts.ErrorStatus;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
@@ -8,11 +9,12 @@ public class ErrorResponse {
     private final HttpStatus status;
     private final String message;
 
-    private ErrorResponse(HttpStatus status, String message) {
-        this.status = status;
-        this.message = message;
+    private ErrorResponse(ErrorStatus errorStatus) {
+        this.status = errorStatus.getStatus();
+        this.message = errorStatus.getMessage();
     }
-    public static ErrorResponse create(HttpStatus status, String message) {
-        return new ErrorResponse(status, message);
+
+    public static ErrorResponse create(ErrorStatus errorStatus) {
+        return new ErrorResponse(errorStatus);
     }
 }
