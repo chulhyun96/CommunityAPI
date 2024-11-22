@@ -30,4 +30,16 @@ public class Users extends BaseEntity{
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private AuthorityPolicy role;
+
+
+    public String getRoleAsString() {
+        return role.toString();
+    }
+
+    public static Users getAuthenticatedUser(String username, AuthorityPolicy role) {
+        return Users.builder()
+                .username(username)
+                .role(role)
+                .build();
+    }
 }
