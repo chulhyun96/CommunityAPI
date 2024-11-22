@@ -29,6 +29,8 @@ import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.*;
 @Slf4j
 @RequiredArgsConstructor
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+    private static final String TOKEN_PREFIX = "Bearer ";
+
     private final AuthenticationManager authenticationManager;
     private final ObjectMapper objectMapper;
     private final JWTProvider jwtProvider;
@@ -56,7 +58,11 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult){
         CustomUserDetails principal = (CustomUserDetails) authResult.getPrincipal();
         String token = jwtProvider.generateToken(principal.getUsername(), getRole(authResult));
-        response.addHeader(AUTHORIZATION_HEADER,"Bearer " + token);
+        response.addHeader(AUTHORIZATION_HEADER, getFormattedToken(token));
+    }
+
+    private String getFormattedToken(String token) {
+        return TOKEN_PREFIX + token;
     }
 
     @Override
@@ -74,14 +80,14 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         return authResult.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .findAny()
-                .orElseThrow(() -> new AccessDeniedException("해당 유저는 권한이 존재하지 않습니다."));
+                .orElseThrow(() -> new AccessDeniedException(ErrorStatus.ACCOUNT_HAS_NOT_ROLE.getMessage()));
     }
 
     private AuthRequest getAuthRequest(HttpServletRequest request) {
         try {
             return objectMapper.readValue(request.getInputStream(), AuthRequest.class);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(ErrorStatus.JSON_PARSING_EXCEPTION.getMessage());
         }
     }
 }
