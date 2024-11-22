@@ -1,5 +1,6 @@
 package com.cheolhyeon.communityapi.module.auth.security;
 
+import com.cheolhyeon.communityapi.module.auth.consts.ErrorStatus;
 import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
 import com.cheolhyeon.communityapi.module.auth.dto.ErrorResponse;
@@ -46,7 +47,9 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         log.info("Attempting to authenticate user: {}", username);
         log.info("Attempting to authenticate password: {}", password);
 
-        return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+        return authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(username, password)
+        );
     }
 
     @Override
@@ -58,14 +61,16 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException {
+        response.setStatus(HttpStatus.BAD_REQUEST.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
 
-        ErrorResponse errorResponse = ErrorResponse.create(HttpStatus.BAD_REQUEST, "계정이 존재하지 않습니다.");
-        response.getWriter().write(objectMapper.writeValueAsString(errorResponse));
+        response.getWriter().write(objectMapper.writeValueAsString(
+                ErrorResponse.create(ErrorStatus.ACCOUNT_NOT_EXISTS)
+        ));
     }
 
-    private static String getRole(Authentication authResult) {
+    private String getRole(Authentication authResult) {
         return authResult.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .findAny()
