@@ -50,8 +50,9 @@ public class SecurityConfig {
         applySessionPolicy(http);
         authorizeHttpRequestMatchers(http);
 
-        addFilter(http, JWTPerRequestFilter.create(jwtProvider),CustomAuthenticationFilter.create(
-                        authenticationManager(configuration), objectMapper, jwtProvider)
+        addFilter(http, JWTPerRequestFilter.create(jwtProvider),
+                CustomAuthenticationFilter.create(authenticationManager(configuration),
+                        objectMapper, jwtProvider)
         );
 
         return http.build();

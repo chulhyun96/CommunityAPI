@@ -65,7 +65,6 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     }
 
     private static void handleExpiredToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.getSession().invalidate();
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setHeader("Location", "/login");
         response.getWriter().write("Token expired. Please log in.");
