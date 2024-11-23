@@ -15,10 +15,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
     private final Users users;
+
+    public static CustomUserDetails from(Users findUser) {
+        return new CustomUserDetails(findUser);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> role = new ArrayList<>();
-        role.add(new SimpleGrantedAuthority(users.getRole()));
+        role.add(new SimpleGrantedAuthority(users.getRoleAsString()));
         return role;
     }
 
