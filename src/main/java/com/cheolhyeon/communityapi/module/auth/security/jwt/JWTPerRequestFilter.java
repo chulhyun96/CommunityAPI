@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.http.HttpHeaders;
 
 import java.io.IOException;
 
@@ -37,15 +38,16 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
         return StringUtils.pathEquals(path, LOGIN_URL) || StringUtils.pathEquals(path, SIGNUP_URL);
     }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
 
-        TokenPolicy policy = TokenPolicy.getTokenPolicy(bearerToken,jwtProvider);
+        TokenPolicy policy = TokenPolicy.getTokenPolicy(bearerToken, jwtProvider);
         String token = policy.apply(bearerToken);
 
         if (!StringUtils.hasText(token)) {
-            handleExpiredToken(request, response);
+            handleExpiredToken(response);
             return;
         }
 
@@ -66,17 +68,9 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
         return new UsernamePasswordAuthenticationToken(customUser, null, customUser.getAuthorities());
     }
 
-    private static String getToken(String bearerToken) {
-        return bearerToken.substring(7);
-    }
-
-    private static void handleExpiredToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private static void handleExpiredToken(HttpServletResponse response) throws IOException {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        response.setHeader("Location", "/login");
+        response.setHeader(HttpHeaders.LOCATION, "/login");
         response.getWriter().write("Token expired. Please log in.");
-    }
-
-    private static boolean isInvalidToken(String bearerToken) {
-        return !StringUtils.hasText(bearerToken) || !StringUtils.startsWithIgnoreCase(bearerToken, "Bearer");
     }
 }
