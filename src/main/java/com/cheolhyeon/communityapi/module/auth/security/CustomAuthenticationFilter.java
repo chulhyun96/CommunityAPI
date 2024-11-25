@@ -1,6 +1,7 @@
 package com.cheolhyeon.communityapi.module.auth.security;
 
 import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
+import com.cheolhyeon.communityapi.module.auth.dto.AuthResponse;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
 import com.cheolhyeon.communityapi.module.auth.dto.ErrorResponse;
 import com.cheolhyeon.communityapi.module.auth.security.jwt.JWTProvider;
@@ -55,10 +56,16 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult){
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException {
         CustomUserDetails principal = (CustomUserDetails) authResult.getPrincipal();
+
+        String prettyJsonResponse = objectMapper.writerWithDefaultPrettyPrinter()
+                .writeValueAsString(AuthResponse.create(principal.getUsers()));
+
         String token = jwtProvider.generateToken(principal.getUsername(), getRole(authResult));
+
         response.addHeader(AUTHORIZATION_HEADER, getFormattedToken(token));
+        response.getWriter().write(prettyJsonResponse);
     }
 
     private String getFormattedToken(String token) {
@@ -71,16 +78,19 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
 
-        response.getWriter().write(objectMapper.writeValueAsString(
-                ErrorResponse.of(ErrorStatus.ACCOUNT_NOT_EXISTS, this.getClass().getName())
-        ));
+        String prettyJsonResponse = objectMapper.writerWithDefaultPrettyPrinter()
+                .writeValueAsString(ErrorResponse.of(
+                        ErrorStatus.ACCOUNT_NOT_EXISTS, this.getClass().getName()
+                ));
+
+        response.getWriter().write(prettyJsonResponse);
     }
 
     private String getRole(Authentication authResult) {
         return authResult.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .findAny()
-                .orElseThrow(() -> new AccessDeniedException(ErrorStatus.ACCOUNT_DOESNT_HAVE_NOT_ROLE.getError()));
+                .orElseThrow(() -> new AccessDeniedException(ErrorStatus.ACCOUNT_DOESNT_HAVE_NOT_ROLE.getErrorType()));
     }
 
     private AuthRequest getAuthRequest(HttpServletRequest request) {
