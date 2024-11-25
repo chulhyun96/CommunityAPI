@@ -23,6 +23,9 @@ import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.AU
 @Slf4j
 @RequiredArgsConstructor
 public class JWTPerRequestFilter extends OncePerRequestFilter {
+    private static final String LOGIN_URL = "/login";
+    private static final String SIGNUP_URL = "/signup";
+
     private final JWTProvider jwtProvider;
 
     public static JWTPerRequestFilter create(JWTProvider jwtProvider) {
@@ -30,11 +33,15 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     }
 
     @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        return StringUtils.pathEquals(path, LOGIN_URL) || StringUtils.pathEquals(path, SIGNUP_URL);
+    }
+    @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
         if (isInvalidToken(bearerToken)) {
             log.info("Bearer token is Invalid");
-            filterChain.doFilter(request, response);
             return;
         }
         String token = getToken(bearerToken);
