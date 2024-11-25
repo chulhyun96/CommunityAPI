@@ -16,7 +16,7 @@ public class ErrorResponseBindingResult {
     private final String rejectedValue;
     private final String errorAnnotation;
 
-    public static List<ErrorResponseBindingResult> create(List<FieldError> errors) {
+    public static List<ErrorResponseBindingResult> fromBindingResult(List<FieldError> errors) {
         return errors.stream()
                 .map(fieldError -> new ErrorResponseBindingResult(
                         fieldError.getDefaultMessage(),
