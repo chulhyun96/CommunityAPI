@@ -1,0 +1,39 @@
+### 회원가입 - 유저 - 성공
+POST http://localhost:8080/signup
+Content-Type: application/json
+
+{
+  "username" : "Hello",
+  "password": "hello123",
+  "phoneNumber": "010-123-4567"
+}
+### 회원가입 - 유저 - 실패
+POST http://localhost:8080/signup
+Content-Type: application/json
+
+{
+  "username" : "",
+  "password": "signupFail-123456789",
+  "phoneNumber": "0101234567"
+}
+
+### 로그인 - 성공
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+"username" : "Hello",
+"password": "hello123"
+}
+
+### 로그인 - 실패
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username" : "Hell",
+  "password": "hello123"
+}
+
+
+### 회원가입 - 관리자
