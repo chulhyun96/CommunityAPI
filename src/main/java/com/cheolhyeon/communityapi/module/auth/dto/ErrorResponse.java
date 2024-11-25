@@ -2,18 +2,17 @@ package com.cheolhyeon.communityapi.module.auth.dto;
 
 import lombok.Getter;
 import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
-import org.springframework.http.HttpStatus;
 
 @Getter
 public class ErrorResponse {
-    private final HttpStatus status;
-    private final String error;
+    private final int errorCode;
+    private final String errorType;
     private final String message;
     private final String errorLocation;
 
     private ErrorResponse(ErrorStatus errorStatus, String errorLocation) {
-        this.status = errorStatus.getStatus();
-        this.error = errorStatus.getError();
+        this.errorCode = errorStatus.getErrorCode();
+        this.errorType = errorStatus.getErrorType();
         this.message = errorStatus.getMessage();
         this.errorLocation = errorLocation;
     }
