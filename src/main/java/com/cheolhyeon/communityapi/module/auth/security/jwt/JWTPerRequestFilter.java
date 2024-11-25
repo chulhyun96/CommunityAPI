@@ -33,23 +33,22 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+    protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
         return StringUtils.pathEquals(path, LOGIN_URL) || StringUtils.pathEquals(path, SIGNUP_URL);
     }
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
-        if (isInvalidToken(bearerToken)) {
-            log.info("Bearer token is Invalid");
-            return;
-        }
-        String token = getToken(bearerToken);
-        if(jwtProvider.isExpired(token)) {
-            log.info("Bearer token is Expired");
+
+        TokenPolicy policy = TokenPolicy.getTokenPolicy(bearerToken,jwtProvider);
+        String token = policy.apply(bearerToken);
+
+        if (!StringUtils.hasText(token)) {
             handleExpiredToken(request, response);
             return;
         }
+
         Authentication auth = createAuthentication(token);
 
         SecurityContextHolder.getContext().setAuthentication(auth);
