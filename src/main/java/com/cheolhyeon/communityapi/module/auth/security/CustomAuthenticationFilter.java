@@ -1,5 +1,6 @@
 package com.cheolhyeon.communityapi.module.auth.security;
 
+import com.cheolhyeon.communityapi.module.auth.util.JsonPrettyPrinter;
 import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.AuthResponse;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
@@ -36,7 +37,11 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     private final ObjectMapper objectMapper;
     private final JWTProvider jwtProvider;
 
-    public static CustomAuthenticationFilter create(AuthenticationManager authenticationManager, ObjectMapper objectMapper, JWTProvider jwtProvider) {
+    public static CustomAuthenticationFilter create(
+            AuthenticationManager authenticationManager,
+            ObjectMapper objectMapper,
+            JWTProvider jwtProvider
+    ) {
         return new CustomAuthenticationFilter(authenticationManager, objectMapper, jwtProvider);
     }
 
@@ -59,13 +64,13 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException {
         CustomUserDetails principal = (CustomUserDetails) authResult.getPrincipal();
 
-        String prettyJsonResponse = objectMapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(AuthResponse.create(principal.getUsers()));
+        String prettyForPrint = JsonPrettyPrinter.getPrettyForPrint(objectMapper,
+                AuthResponse.create(principal.getUsers()));
 
         String token = jwtProvider.generateToken(principal.getUsername(), getRole(authResult));
 
         response.addHeader(AUTHORIZATION_HEADER, getFormattedToken(token));
-        response.getWriter().write(prettyJsonResponse);
+        response.getWriter().write(prettyForPrint);
     }
 
     private String getFormattedToken(String token) {
@@ -78,12 +83,11 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
 
-        String prettyJsonResponse = objectMapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(ErrorResponse.of(
-                        ErrorStatus.ACCOUNT_NOT_EXISTS)
-                );
+        String prettyForPrint = JsonPrettyPrinter.getPrettyForPrint(objectMapper, (ErrorResponse.of(
+                ErrorStatus.ACCOUNT_NOT_EXISTS))
+        );
 
-        response.getWriter().write(prettyJsonResponse);
+        response.getWriter().write(prettyForPrint);
     }
 
     private String getRole(Authentication authResult) {
