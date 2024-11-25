@@ -8,16 +8,14 @@ public class ErrorResponse {
     private final int errorCode;
     private final String errorType;
     private final String message;
-    private final String errorLocation;
 
-    private ErrorResponse(ErrorStatus errorStatus, String errorLocation) {
+    private ErrorResponse(ErrorStatus errorStatus) {
         this.errorCode = errorStatus.getErrorCode();
         this.errorType = errorStatus.getErrorType();
         this.message = errorStatus.getMessage();
-        this.errorLocation = errorLocation;
     }
 
-    public static ErrorResponse of(ErrorStatus errorStatus, String errorLocation) {
-        return new ErrorResponse(errorStatus, errorLocation);
+    public static ErrorResponse of(ErrorStatus errorStatus) {
+        return new ErrorResponse(errorStatus);
     }
 }
