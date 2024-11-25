@@ -80,8 +80,8 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
         String prettyJsonResponse = objectMapper.writerWithDefaultPrettyPrinter()
                 .writeValueAsString(ErrorResponse.of(
-                        ErrorStatus.ACCOUNT_NOT_EXISTS, this.getClass().getName()
-                ));
+                        ErrorStatus.ACCOUNT_NOT_EXISTS)
+                );
 
         response.getWriter().write(prettyJsonResponse);
     }

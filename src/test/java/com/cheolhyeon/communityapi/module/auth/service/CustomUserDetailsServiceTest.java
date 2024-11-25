@@ -2,7 +2,7 @@ package com.cheolhyeon.communityapi.module.auth.service;
 
 import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
-import com.cheolhyeon.communityapi.module.auth.exception.UserAlreadyExist;
+import com.cheolhyeon.communityapi.module.auth.exception.UserAlreadyExistException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
@@ -21,7 +21,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
@@ -93,7 +92,7 @@ class CustomUserDetailsServiceTest {
                 .willReturn(Optional.of(existingUser));
 
         // When
-        UserAlreadyExist exception = assertThrows(UserAlreadyExist.class,
+        UserAlreadyExistException exception = assertThrows(UserAlreadyExistException.class,
                 () -> customUserDetailsService.save(request));
 
         // Then
