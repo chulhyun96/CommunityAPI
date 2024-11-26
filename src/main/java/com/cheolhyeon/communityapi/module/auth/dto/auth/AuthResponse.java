@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.auth.dto;
+package com.cheolhyeon.communityapi.module.auth.dto.auth;
 
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;

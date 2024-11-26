@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.auth.dto;
+package com.cheolhyeon.communityapi.module.auth.dto.error;
 
 import lombok.Getter;
 import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;

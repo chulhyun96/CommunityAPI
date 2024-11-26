@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.auth.dto;
+package com.cheolhyeon.communityapi.module.auth.dto.auth;
 
 import jakarta.validation.constraints.*;
 import lombok.Builder;
@@ -16,6 +16,6 @@ public class AuthRequest {
     private String password;
 
     @NotBlank(message = "핸드폰 번호를 입력해주세요.")
-    @Pattern(regexp = "^01[016789]-\\d{3,4}-\\d{4}$", message = "입력 형식에 어긋납니다.")
+    @Pattern(regexp = "^01[016789]-\\d{4}-\\d{4}$", message = "입력 형식에 어긋납니다.")
     private String phoneNumber;
 }
