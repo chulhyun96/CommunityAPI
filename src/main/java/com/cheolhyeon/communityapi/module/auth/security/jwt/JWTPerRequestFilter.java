@@ -25,7 +25,8 @@ import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.AU
 @RequiredArgsConstructor
 public class JWTPerRequestFilter extends OncePerRequestFilter {
     private static final String LOGIN_URL = "/login";
-    private static final String SIGNUP_URL = "/signup";
+    private static final String SIGNUP_URL_USER = "/signup/user";
+    private static final String SIGNUP_URL_ADMIN = "/signup/admin";
 
     private final JWTProvider jwtProvider;
 
@@ -36,7 +37,13 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        return StringUtils.pathEquals(path, LOGIN_URL) || StringUtils.pathEquals(path, SIGNUP_URL);
+        return isPathEquals(path);
+    }
+
+    private boolean isPathEquals(String path) {
+        return StringUtils.pathEquals(path, LOGIN_URL) ||
+                StringUtils.pathEquals(path, SIGNUP_URL_USER) ||
+                StringUtils.pathEquals(path, SIGNUP_URL_ADMIN);
     }
 
     @Override
