@@ -13,7 +13,7 @@ public enum ErrorStatus {
     ACCOUNT_DOESNT_HAVE_NOT_ROLE(
             HttpStatus.INTERNAL_SERVER_ERROR,
             HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
-            "계정 조회 - 해당 계좌는 권한이 존재 하지 않습니다."
+            "계정 조회 - 해당 계정는 권한이 존재 하지 않습니다."
     ),
     JSON_PARSING_EXCEPTION(
             HttpStatus.INTERNAL_SERVER_ERROR,
@@ -23,6 +23,11 @@ public enum ErrorStatus {
     USER_ALREADY_EXIST(HttpStatus.CONFLICT,
             HttpStatus.CONFLICT.getReasonPhrase(),
             "사용자 조회 - ID 중복입니다."
+    ),
+    USER_NOT_FOUND(
+            HttpStatus.BAD_REQUEST,
+            HttpStatus.BAD_REQUEST.getReasonPhrase(),
+            "해당 유저를 찾을 수 없습니다."
     );
 
 
