@@ -44,12 +44,20 @@ public class Users extends BaseEntity{
         posts.add(post);
     }
 
-    public static Users create(AuthRequest request, String encodedPassword) {
+    public static Users createUser(AuthRequest request, String encodedPassword) {
         return Users.builder()
                 .username(request.getUsername())
                 .password(encodedPassword)
                 .phoneNumber(request.getPhoneNumber())
                 .role(AuthorityPolicy.ROLE_USER)
+                .build();
+    }
+    public static Users createAdmin(AuthRequest request, String encodedPassword) {
+        return Users.builder()
+                .username(request.getUsername())
+                .password(encodedPassword)
+                .phoneNumber(request.getPhoneNumber())
+                .role(AuthorityPolicy.ROLE_ADMIN)
                 .build();
     }
 
