@@ -1,9 +1,9 @@
 package com.cheolhyeon.communityapi.module.auth.service;
 
-import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
+import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
-import com.cheolhyeon.communityapi.module.auth.exception.UserAlreadyExistException;
+import com.cheolhyeon.communityapi.module.auth.exception.UserException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +33,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public Users saveUser(AuthRequest request) {
         usersRepository.findByUsername(request.getUsername())
                 .ifPresent(it -> {
-                    throw new UserAlreadyExistException(ErrorStatus.USER_ALREADY_EXIST);
+                    throw new UserException(ErrorStatus.USER_ALREADY_EXIST);
                 });
 
         return usersRepository.save(Users.createUser(request,
@@ -44,10 +44,15 @@ public class CustomUserDetailsService implements UserDetailsService {
     public Users saveAdmin(AuthRequest request) {
         usersRepository.findByUsername(request.getUsername())
                 .ifPresent(it -> {
-                    throw new UserAlreadyExistException(ErrorStatus.USER_ALREADY_EXIST);
+                    throw new UserException(ErrorStatus.USER_ALREADY_EXIST);
                 });
 
         return usersRepository.save(Users.createAdmin(request,
                 passwordEncoder.encode(request.getPassword())));
+    }
+
+    public Users getUser(Long id) {
+        return usersRepository.findById(id)
+                .orElseThrow(() -> new UserException(ErrorStatus.USER_NOT_FOUND));
     }
 }
