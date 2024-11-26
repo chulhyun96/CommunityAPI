@@ -68,7 +68,7 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
         String username = jwtProvider.getUsername(token);
         AuthorityPolicy role = AuthorityPolicy.fromString(jwtProvider.getRoleAsString(token));
 
-        CustomUserDetails customUser = CustomUserDetails.from(
+        CustomUserDetails customUser = CustomUserDetails.create(
                 Users.builder()
                         .username(username)
                         .role(role)

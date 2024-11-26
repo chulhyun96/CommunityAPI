@@ -84,7 +84,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
 
         String prettyForPrint = JsonPrettyPrinter.getPrettyForPrint(objectMapper, (
-                ErrorResponse.of(ErrorStatus.ACCOUNT_NOT_EXISTS)
+                ErrorResponse.create(ErrorStatus.ACCOUNT_NOT_EXISTS)
         ));
 
         response.getWriter().write(prettyForPrint);

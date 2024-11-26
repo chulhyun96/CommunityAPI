@@ -27,7 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         Users findUser = usersRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
 
-        return CustomUserDetails.from(findUser);
+        return CustomUserDetails.create(findUser);
     }
 
     @Transactional
@@ -59,7 +59,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     public Users getUser(Long id) {
-        return usersRepository.findById(id)
+        return usersRepository.findByIdWithPosts(id)
                 .orElseThrow(() -> new UserException(ErrorStatus.USER_NOT_FOUND));
     }
 }

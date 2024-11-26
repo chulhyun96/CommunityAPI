@@ -15,7 +15,7 @@ public class ErrorResponse {
         this.message = errorStatus.getMessage();
     }
 
-    public static ErrorResponse of(ErrorStatus errorStatus) {
+    public static ErrorResponse create(ErrorStatus errorStatus) {
         return new ErrorResponse(errorStatus);
     }
 }

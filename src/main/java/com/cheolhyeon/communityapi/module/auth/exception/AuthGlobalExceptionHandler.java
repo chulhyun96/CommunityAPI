@@ -11,6 +11,6 @@ public class AuthGlobalExceptionHandler {
 
     @ExceptionHandler(UserException.class)
     public ErrorResponse userExceptionHandler(UserException e) {
-        return ErrorResponse.of(e.getErrorStatus());
+        return ErrorResponse.create(e.getErrorStatus());
     }
 }

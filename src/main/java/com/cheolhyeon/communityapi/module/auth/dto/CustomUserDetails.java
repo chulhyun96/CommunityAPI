@@ -16,7 +16,7 @@ import java.util.List;
 public class CustomUserDetails implements UserDetails {
     private final Users users;
 
-    public static CustomUserDetails from(Users findUser) {
+    public static CustomUserDetails create(Users findUser) {
         return new CustomUserDetails(findUser);
     }
 
