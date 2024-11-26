@@ -22,6 +22,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 
 @Transactional
@@ -35,10 +36,12 @@ class CustomUserDetailsServiceTest {
     private PasswordEncoder passwordEncoder;
 
     CustomUserDetailsService customUserDetailsService;
+
     @BeforeEach
     void setUp() {
         this.customUserDetailsService = new CustomUserDetailsService(usersRepository,passwordEncoder);
     }
+
     @Test
     @DisplayName("회원가입 - 성공")
     void save_success() {
@@ -58,13 +61,14 @@ class CustomUserDetailsServiceTest {
                 .role(AuthorityPolicy.ROLE_USER)
                 .build();
 
-        given(usersRepository.save(any(Users.class)))
-                .willReturn(entity);
+        given(usersRepository.save(any(Users.class))).willReturn(entity);
+
         //when
         Users savedUser = customUserDetailsService.save(request);
-        ArgumentCaptor<Users> captor = ArgumentCaptor.forClass(Users.class);
+
         //then
-        verify(usersRepository, times(1)).save(captor.capture());
+        then(usersRepository).should(times(1)).save(any(Users.class));
+
         assertAll(
                 () -> assertNotNull(savedUser),
                 () -> assertEquals(request.getUsername(), entity.getUsername()),
@@ -96,9 +100,11 @@ class CustomUserDetailsServiceTest {
                 () -> customUserDetailsService.save(request));
 
         // Then
-        verify(usersRepository, times(1))
-                .findByUsername(request.getUsername());
-        verifyNoMoreInteractions(usersRepository);
+        then(usersRepository).should(times(0)).save(any(Users.class));
+        then(usersRepository).should(times(1)).findByUsername(request.getUsername());
+        then(usersRepository).shouldHaveNoMoreInteractions();
+
+
         assertEquals(ErrorStatus.USER_ALREADY_EXIST.getMessage(), exception.getMessage());
 
     }
