@@ -1,6 +1,6 @@
 package com.cheolhyeon.communityapi.module.auth.entity;
 
-import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
+import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import jakarta.persistence.*;
@@ -44,32 +44,17 @@ public class Users extends BaseEntity{
         posts.add(post);
     }
 
-    public static Users createUser(AuthRequest request, String encodedPassword) {
+    public static Users create(AuthRequest request, String encodedPassword, AuthorityPolicy role) {
         return Users.builder()
                 .username(request.getUsername())
                 .password(encodedPassword)
                 .phoneNumber(request.getPhoneNumber())
-                .role(AuthorityPolicy.ROLE_USER)
-                .build();
-    }
-    public static Users createAdmin(AuthRequest request, String encodedPassword) {
-        return Users.builder()
-                .username(request.getUsername())
-                .password(encodedPassword)
-                .phoneNumber(request.getPhoneNumber())
-                .role(AuthorityPolicy.ROLE_ADMIN)
+                .role(role)
                 .build();
     }
 
 
     public String getRoleAsString() {
         return role.toString();
-    }
-
-    public static Users getAuthenticatedUser(String username, AuthorityPolicy role) {
-        return Users.builder()
-                .username(username)
-                .role(role)
-                .build();
     }
 }
