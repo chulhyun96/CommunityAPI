@@ -2,11 +2,15 @@ package com.cheolhyeon.communityapi.module.auth.entity;
 
 import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
+import com.cheolhyeon.communityapi.module.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter
@@ -28,9 +32,17 @@ public class Users extends BaseEntity{
     @Column(nullable = false, length = 15)
     private String phoneNumber;
 
+    @OneToMany(mappedBy = "user")
+    private final List<Post> posts = new ArrayList<>();
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private AuthorityPolicy role;
+
+    public void addPost(Post post) {
+        post.assignUser(this);
+        posts.add(post);
+    }
 
     public static Users create(AuthRequest request, String encodedPassword) {
         return Users.builder()
