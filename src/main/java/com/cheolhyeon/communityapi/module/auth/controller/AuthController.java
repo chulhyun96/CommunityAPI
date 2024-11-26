@@ -1,8 +1,8 @@
 package com.cheolhyeon.communityapi.module.auth.controller;
 
-import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
-import com.cheolhyeon.communityapi.module.auth.dto.AuthResponse;
-import com.cheolhyeon.communityapi.module.auth.dto.ErrorResponseBindingResult;
+import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
+import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthResponse;
+import com.cheolhyeon.communityapi.module.auth.dto.error.ErrorResponseBindingResult;
 import com.cheolhyeon.communityapi.module.auth.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final CustomUserDetailsService customUserDetailsService;
 
-    @PostMapping("/signup")
-    public ResponseEntity<?> save(@RequestBody @Validated AuthRequest request,
-                                             BindingResult bindingResult) {
+    @PostMapping("/signup/user")
+    public ResponseEntity<?> saveUser(@RequestBody @Validated AuthRequest request,
+                                      BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(
                     ErrorResponseBindingResult.fromBindingResult(
@@ -27,7 +27,21 @@ public class AuthController {
                     ));
         }
         return ResponseEntity.ok().body(AuthResponse.fromEntity(
-                customUserDetailsService.save(request)
+                customUserDetailsService.saveUser(request)
+        ));
+    }
+
+    @PostMapping("/signup/admin")
+    public ResponseEntity<?> saveAdmin(@RequestBody @Validated AuthRequest request,
+                                      BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(
+                    ErrorResponseBindingResult.fromBindingResult(
+                            bindingResult.getFieldErrors()
+                    ));
+        }
+        return ResponseEntity.ok().body(AuthResponse.fromEntity(
+                customUserDetailsService.saveAdmin(request)
         ));
     }
 }
