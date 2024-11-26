@@ -1,10 +1,10 @@
 package com.cheolhyeon.communityapi.module.auth.security;
 
 import com.cheolhyeon.communityapi.module.auth.util.JsonPrettyPrinter;
-import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
-import com.cheolhyeon.communityapi.module.auth.dto.AuthResponse;
+import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
+import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthResponse;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
-import com.cheolhyeon.communityapi.module.auth.dto.ErrorResponse;
+import com.cheolhyeon.communityapi.module.auth.dto.error.ErrorResponse;
 import com.cheolhyeon.communityapi.module.auth.security.jwt.JWTProvider;
 import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;

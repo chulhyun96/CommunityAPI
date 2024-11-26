@@ -1,8 +1,8 @@
 package com.cheolhyeon.communityapi.module.auth.service;
 
-import com.cheolhyeon.communityapi.module.auth.dto.AuthRequest;
+import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
-import com.cheolhyeon.communityapi.module.auth.exception.UserAlreadyExistException;
+import com.cheolhyeon.communityapi.module.auth.exception.UserException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,8 +42,8 @@ class CustomUserDetailsServiceTest {
     }
 
     @Test
-    @DisplayName("회원가입 - 성공")
-    void save_success() {
+    @DisplayName("회원가입 - (유저)성공")
+    void save_User_success() {
         //given
         AuthRequest request = AuthRequest.builder()
                 .username("Test1")
@@ -64,7 +63,7 @@ class CustomUserDetailsServiceTest {
         given(usersRepository.save(any(Users.class))).willReturn(entity);
 
         //when
-        Users savedUser = customUserDetailsService.save(request);
+        Users savedUser = customUserDetailsService.saveUser(request);
 
         //then
         then(usersRepository).should(times(1)).save(any(Users.class));
@@ -76,8 +75,8 @@ class CustomUserDetailsServiceTest {
         );
     }
     @Test
-    @DisplayName("회원가입 - 실패(회원 ID 중복)")
-    void fail_success() {
+    @DisplayName("회원가입 - (유저) 실패 - 회원 ID 중복")
+    void fail_user_success() {
         // Given
         AuthRequest request = AuthRequest.builder()
                 .username("duplicateUser")
@@ -96,8 +95,8 @@ class CustomUserDetailsServiceTest {
                 .willReturn(Optional.of(existingUser));
 
         // When
-        UserAlreadyExistException exception = assertThrows(UserAlreadyExistException.class,
-                () -> customUserDetailsService.save(request));
+        UserException exception = assertThrows(UserException.class,
+                () -> customUserDetailsService.saveUser(request));
 
         // Then
         then(usersRepository).should(times(0)).save(any(Users.class));
