@@ -5,6 +5,7 @@ import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.exception.UserException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
+import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,8 +37,11 @@ public class CustomUserDetailsService implements UserDetailsService {
                     throw new UserException(ErrorStatus.USER_ALREADY_EXIST);
                 });
 
-        return usersRepository.save(Users.createUser(request,
-                passwordEncoder.encode(request.getPassword())));
+        return usersRepository.save(Users.create(
+                request,
+                passwordEncoder.encode(request.getPassword()),
+                AuthorityPolicy.ROLE_USER
+        ));
     }
 
     @Transactional
@@ -47,8 +51,11 @@ public class CustomUserDetailsService implements UserDetailsService {
                     throw new UserException(ErrorStatus.USER_ALREADY_EXIST);
                 });
 
-        return usersRepository.save(Users.createAdmin(request,
-                passwordEncoder.encode(request.getPassword())));
+        return usersRepository.save(Users.create(
+                request,
+                passwordEncoder.encode(request.getPassword()),
+                AuthorityPolicy.ROLE_ADMIN
+        ));
     }
 
     public Users getUser(Long id) {
