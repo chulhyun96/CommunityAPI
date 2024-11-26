@@ -33,7 +33,7 @@ public class SecurityConfig {
     protected static final String HTTP_LOCALHOST_3000 = "http://localhost:3000";
 
     private static final String ROOT_PATH_PATTERN = "*";
-    private static final String[] PUBLIC_URIS = {"/", "/login", "/signup"};
+    private static final String[] PUBLIC_URIS = {"/", "/login", "/signup/**"};
     private static final String[] ADMIN_URI = {"/admin/**"};
 
     private final AuthenticationConfiguration configuration;
