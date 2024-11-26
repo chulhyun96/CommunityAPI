@@ -51,8 +51,8 @@ public class Users extends BaseEntity {
     }
 
     public void addPost(Post post) {
-        post.assignUser(this);
         posts.add(post);
+        post.assignUser(this);
     }
 
     public String getRoleAsString() {
