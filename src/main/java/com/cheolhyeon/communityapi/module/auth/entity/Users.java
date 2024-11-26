@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Users extends BaseEntity{
+public class Users extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -39,10 +39,6 @@ public class Users extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private AuthorityPolicy role;
 
-    public void addPost(Post post) {
-        post.assignUser(this);
-        posts.add(post);
-    }
     private Users(AuthRequest request, String encodedPassword, AuthorityPolicy role) {
         this.username = request.getUsername();
         this.password = encodedPassword;
@@ -52,6 +48,11 @@ public class Users extends BaseEntity{
 
     public static Users create(AuthRequest request, String encodedPassword, AuthorityPolicy role) {
         return new Users(request, encodedPassword, role);
+    }
+
+    public void addPost(Post post) {
+        post.assignUser(this);
+        posts.add(post);
     }
 
     public String getRoleAsString() {
