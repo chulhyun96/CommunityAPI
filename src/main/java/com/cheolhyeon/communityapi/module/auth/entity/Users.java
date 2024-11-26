@@ -43,16 +43,16 @@ public class Users extends BaseEntity{
         post.assignUser(this);
         posts.add(post);
     }
-
-    public static Users create(AuthRequest request, String encodedPassword, AuthorityPolicy role) {
-        return Users.builder()
-                .username(request.getUsername())
-                .password(encodedPassword)
-                .phoneNumber(request.getPhoneNumber())
-                .role(role)
-                .build();
+    private Users(AuthRequest request, String encodedPassword, AuthorityPolicy role) {
+        this.username = request.getUsername();
+        this.password = encodedPassword;
+        this.phoneNumber = request.getPhoneNumber();
+        this.role = role;
     }
 
+    public static Users create(AuthRequest request, String encodedPassword, AuthorityPolicy role) {
+        return new Users(request, encodedPassword, role);
+    }
 
     public String getRoleAsString() {
         return role.toString();
