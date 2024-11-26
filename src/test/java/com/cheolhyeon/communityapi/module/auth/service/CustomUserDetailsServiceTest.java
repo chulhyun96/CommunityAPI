@@ -107,4 +107,31 @@ class CustomUserDetailsServiceTest {
         assertEquals(ErrorStatus.USER_ALREADY_EXIST.getMessage(), exception.getMessage());
 
     }
+    @Test
+    @DisplayName("유저 조회 - 성공")
+    void success_get_user() {
+        //given
+        Users user = Users.builder()
+                .id(1L)
+                .password("password")
+                .phoneNumber("010-123-4567")
+                .role(AuthorityPolicy.ROLE_USER)
+                .build();
+        given(usersRepository.findByIdWithPosts(anyLong())).willReturn(Optional.of(user));
+        //when
+        Users findUser = customUserDetailsService.getUser(1L);
+        //then
+        then(usersRepository).should(times(1)).findByIdWithPosts(anyLong());
+        assertEquals(user.getUsername(), findUser.getUsername());
+    }
+    @Test
+    @DisplayName("유저 조회 - 실패")
+    void fail_get_user() {
+        //given
+        given(usersRepository.findByIdWithPosts(anyLong())).willReturn(Optional.empty());
+        //when
+        assertThrows(UserException.class, () -> customUserDetailsService.getUser(1L));
+        //then
+        then(usersRepository).should(times(1)).findByIdWithPosts(anyLong());
+    }
 }
