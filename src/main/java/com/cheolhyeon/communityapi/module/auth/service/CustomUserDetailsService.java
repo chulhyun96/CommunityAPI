@@ -2,6 +2,7 @@ package com.cheolhyeon.communityapi.module.auth.service;
 
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
+import com.cheolhyeon.communityapi.module.auth.dto.user.UserResponse;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.exception.UserException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
@@ -57,9 +58,9 @@ public class CustomUserDetailsService implements UserDetailsService {
                 AuthorityPolicy.ROLE_ADMIN
         ));
     }
-
-    public Users getUser(Long id) {
-        return usersRepository.findByIdWithPosts(id)
+    public UserResponse getUser(Long id) {
+        Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new UserException(ErrorStatus.USER_NOT_FOUND));
+        return UserResponse.create(user);
     }
 }
