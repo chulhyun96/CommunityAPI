@@ -1,14 +1,15 @@
-### 회원가입 - 유저 - 성공
-POST http://localhost:8080/signup
+@auth_token = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkhlbGxvIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTczMjYyNDA0NiwiZXhwIjoxNzMyNjI3NjQ2fQ.ft8WtTJxbzTeRV7Zp6Q6WTuy8nf_I24RxUslJ5QPSaE
+### 회원가입 - 유저(성공)
+POST http://localhost:8080/signup/user
 Content-Type: application/json
 
 {
   "username" : "Hello",
   "password": "hello123",
-  "phoneNumber": "010-123-4567"
+  "phoneNumber": "010-1232-4567"
 }
-### 회원가입 - 유저 - 실패
-POST http://localhost:8080/signup
+### 회원가입 - 유저(실패)
+POST http://localhost:8080/signup/user
 Content-Type: application/json
 
 {
@@ -17,13 +18,42 @@ Content-Type: application/json
   "phoneNumber": "0101234567"
 }
 
-### 로그인 - 성공
+### 회원가입 - 관리자(성공)
+POST http://localhost:8080/signup/admin
+Content-Type: application/json
+
+{
+  "username" : "HelloAdmin",
+  "password": "admin123",
+  "phoneNumber": "010-9876-2543"
+}
+
+### 회원가입 - 관리자(실패)
+POST http://localhost:8080/signup/admin
+Content-Type: application/json
+
+{
+  "username" : "",
+  "password": "signupAdminFail",
+  "phoneNumber": "010-1234-2562"
+}
+
+### 로그인 - 성공(유저)
 POST http://localhost:8080/login
 Content-Type: application/json
 
 {
 "username" : "Hello",
 "password": "hello123"
+}
+
+### 로그인 - 관리자(성공)
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+"username" : "HelloAdmin",
+"password": "admin123"
 }
 
 ### 로그인 - 실패
@@ -35,5 +65,13 @@ Content-Type: application/json
   "password": "hello123"
 }
 
+### 유저 조회 - 성공
+GET http://localhost:8080/user/1
+Authorization: Bearer {{auth_token}}
 
-### 회원가입 - 관리자
+### 유저 조회 - 실패
+GET http://localhost:8080/user/3934
+Authorization: Bearer {{auth_token}}
+
+
+
