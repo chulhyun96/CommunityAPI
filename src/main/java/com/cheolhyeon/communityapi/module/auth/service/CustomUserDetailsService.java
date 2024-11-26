@@ -30,13 +30,24 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     @Transactional
-    public Users save(AuthRequest request) {
+    public Users saveUser(AuthRequest request) {
         usersRepository.findByUsername(request.getUsername())
                 .ifPresent(it -> {
                     throw new UserAlreadyExistException(ErrorStatus.USER_ALREADY_EXIST);
                 });
 
-        return usersRepository.save(Users.create(request,
+        return usersRepository.save(Users.createUser(request,
+                passwordEncoder.encode(request.getPassword())));
+    }
+
+    @Transactional
+    public Users saveAdmin(AuthRequest request) {
+        usersRepository.findByUsername(request.getUsername())
+                .ifPresent(it -> {
+                    throw new UserAlreadyExistException(ErrorStatus.USER_ALREADY_EXIST);
+                });
+
+        return usersRepository.save(Users.createAdmin(request,
                 passwordEncoder.encode(request.getPassword())));
     }
 }
