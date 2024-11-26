@@ -2,6 +2,7 @@ package com.cheolhyeon.communityapi.module.post.entity;
 
 import com.cheolhyeon.communityapi.module.auth.entity.BaseEntity;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
+import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,18 @@ public class Post extends BaseEntity {
     private String content;
     private Integer commentCount;
 
+    private Post(PostRequest postRequest) {
+        this.title = postRequest.getTitle();
+        this.content = postRequest.getContent();
+        this.commentCount = 0;
+    }
+
+    public static Post create(PostRequest postRequest) {
+        return new Post(postRequest);
+    }
+
     public void assignUser(Users users) {
         this.user = users;
     }
+
 }
