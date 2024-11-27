@@ -1,7 +1,7 @@
 package com.cheolhyeon.communityapi.module.auth.dto.error;
 
 import lombok.Getter;
-import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
+import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 
 @Getter
 public class ErrorResponse {
@@ -9,13 +9,13 @@ public class ErrorResponse {
     private final String errorType;
     private final String message;
 
-    private ErrorResponse(ErrorStatus errorStatus) {
-        this.errorCode = errorStatus.getErrorCode();
-        this.errorType = errorStatus.getErrorType();
-        this.message = errorStatus.getMessage();
+    private ErrorResponse(AuthErrorStatus authErrorStatus) {
+        this.errorCode = authErrorStatus.getErrorCode();
+        this.errorType = authErrorStatus.getErrorType();
+        this.message = authErrorStatus.getMessage();
     }
 
-    public static ErrorResponse create(ErrorStatus errorStatus) {
-        return new ErrorResponse(errorStatus);
+    public static ErrorResponse create(AuthErrorStatus authErrorStatus) {
+        return new ErrorResponse(authErrorStatus);
     }
 }
