@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.auth.entity;
+package com.cheolhyeon.communityapi.module.common;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
@@ -17,5 +17,4 @@ public abstract class BaseEntity {
     private LocalDate createdAt;
     @LastModifiedDate
     private LocalDate updatedAt;
-
 }
