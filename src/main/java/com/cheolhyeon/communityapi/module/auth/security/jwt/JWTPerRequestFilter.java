@@ -95,6 +95,7 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
 
         String prettyForPrint = JsonPrettyPrinter.getPrettyForPrint(objectMapper,
                 ErrorResponse.create(AuthErrorStatus.TOKEN_EXPIRED));
+
         response.getWriter().write(prettyForPrint);
     }
 }

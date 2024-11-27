@@ -38,7 +38,7 @@ public enum AuthErrorStatus implements ErrorStatus {
     TOKEN_EXPIRED(
             HttpStatus.UNAUTHORIZED,
             HttpStatus.UNAUTHORIZED.getReasonPhrase(),
-            "토큰이 만료되었습니다. 다시 로그인해주세요."
+            "토큰이 만료되었습니다. 로그인해주세요."
     );
 
 
