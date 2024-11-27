@@ -3,7 +3,6 @@ package com.cheolhyeon.communityapi.module.post.controller;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponsePageable;
-import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
