@@ -1,6 +1,7 @@
 package com.cheolhyeon.communityapi.module.auth.service;
 
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
+import com.cheolhyeon.communityapi.module.auth.dto.user.UserResponse;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.exception.UserException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
@@ -113,25 +114,28 @@ class CustomUserDetailsServiceTest {
         //given
         Users user = Users.builder()
                 .id(1L)
+                .username("Test1")
                 .password("password")
                 .phoneNumber("010-123-4567")
                 .role(AuthorityPolicy.ROLE_USER)
                 .build();
-        given(usersRepository.findByIdWithPosts(anyLong())).willReturn(Optional.of(user));
+        given(usersRepository.findById(anyLong())).willReturn(Optional.of(user));
+        given(usersRepository.findByUsername(anyString())).willReturn(Optional.of(user));
         //when
-        Users findUser = customUserDetailsService.getUser(1L);
+        UserResponse findUser = customUserDetailsService.getUser(1L,anyString());
         //then
-        then(usersRepository).should(times(1)).findByIdWithPosts(anyLong());
+        then(usersRepository).should(times(1)).findById(anyLong());
         assertEquals(user.getUsername(), findUser.getUsername());
     }
+
     @Test
     @DisplayName("유저 조회 - 실패")
     void fail_get_user() {
         //given
-        given(usersRepository.findByIdWithPosts(anyLong())).willReturn(Optional.empty());
+        given(usersRepository.findById(anyLong())).willReturn(Optional.empty());
         //when
-        assertThrows(UserException.class, () -> customUserDetailsService.getUser(1L));
+        assertThrows(UserException.class, () -> customUserDetailsService.getUser(1L,"Test1"));
         //then
-        then(usersRepository).should(times(1)).findByIdWithPosts(anyLong());
+        then(usersRepository).should(times(1)).findById(anyLong());
     }
 }
