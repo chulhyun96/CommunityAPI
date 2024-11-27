@@ -1,14 +1,19 @@
 package com.cheolhyeon.communityapi.module.auth.security.jwt;
 
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
+import com.cheolhyeon.communityapi.module.auth.dto.error.ErrorResponse;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
+import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
+import com.cheolhyeon.communityapi.module.auth.util.JsonPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +22,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.http.HttpHeaders;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.AUTHORIZATION_HEADER;
 
@@ -30,9 +36,10 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     private static final String HOME = "/";
 
     private final JWTProvider jwtProvider;
+    private final ObjectMapper objectMapper;
 
-    public static JWTPerRequestFilter create(JWTProvider jwtProvider) {
-        return new JWTPerRequestFilter(jwtProvider);
+    public static JWTPerRequestFilter create(JWTProvider jwtProvider, ObjectMapper objectMapper) {
+        return new JWTPerRequestFilter(jwtProvider, objectMapper);
     }
 
     @Override
@@ -80,9 +87,14 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
         return new UsernamePasswordAuthenticationToken(customUser, null, customUser.getAuthorities());
     }
 
-    private static void handleExpiredToken(HttpServletResponse response) throws IOException {
+    private void handleExpiredToken(HttpServletResponse response) throws IOException {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setHeader(HttpHeaders.LOCATION, "/login");
-        response.getWriter().write("Token expired. Please log in.");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+
+        String prettyForPrint = JsonPrettyPrinter.getPrettyForPrint(objectMapper,
+                ErrorResponse.create(AuthErrorStatus.TOKEN_EXPIRED));
+        response.getWriter().write(prettyForPrint);
     }
 }
