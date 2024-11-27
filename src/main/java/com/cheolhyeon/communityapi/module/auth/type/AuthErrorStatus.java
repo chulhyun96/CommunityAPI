@@ -33,6 +33,12 @@ public enum AuthErrorStatus implements ErrorStatus {
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED,
             HttpStatus.UNAUTHORIZED.getReasonPhrase(),
             "타 이용자의 정보를 조회할 수 없습니다."
+    ),
+
+    TOKEN_EXPIRED(
+            HttpStatus.UNAUTHORIZED,
+            HttpStatus.UNAUTHORIZED.getReasonPhrase(),
+            "토큰이 만료되었습니다. 다시 로그인해주세요."
     );
 
 
