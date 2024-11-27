@@ -63,7 +63,7 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
         String token = policy.apply(bearerToken);
 
         if (!StringUtils.hasText(token)) {
-            handleExpiredToken(response);
+            handleTokenInvalid(response);
             return;
         }
 
@@ -87,7 +87,7 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
         return new UsernamePasswordAuthenticationToken(customUser, null, customUser.getAuthorities());
     }
 
-    private void handleExpiredToken(HttpServletResponse response) throws IOException {
+    private void handleTokenInvalid(HttpServletResponse response) throws IOException {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setHeader(HttpHeaders.LOCATION, "/login");
