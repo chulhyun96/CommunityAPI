@@ -2,18 +2,15 @@ package com.cheolhyeon.communityapi.module.post.controller;
 
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
+import com.cheolhyeon.communityapi.module.post.dto.PostResponsePageable;
+import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.service.PostService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
-@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class PostController {
@@ -22,9 +19,13 @@ public class PostController {
     @PostMapping("/post")
     public ResponseEntity<?> post(@RequestBody PostRequest postRequest,
                                   Principal principal) {
-        return ResponseEntity.ok().body(PostResponse.create(
+        return ResponseEntity.ok().body(PostResponsePageable.create(
                 postService.save(postRequest, principal.getName())
         ));
     }
-
+    @GetMapping("/post/{id}")
+    public ResponseEntity<?> getPost(@PathVariable Long id) {
+        Post post = postService.getPost(id);
+        return ResponseEntity.ok(PostResponse.create(post));
+    }
 }
