@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice(assignableTypes = {AuthController.class, UserController.class})
 public class AuthGlobalExceptionHandler {
 
-    @ExceptionHandler(UserException.class)
-    public ErrorResponse userExceptionHandler(UserException e) {
-        return ErrorResponse.create(e.getErrorStatus());
+    @ExceptionHandler(AuthException.class)
+    public ErrorResponse userExceptionHandler(AuthException e) {
+        return ErrorResponse.create(e.getAuthErrorStatus());
     }
 }
