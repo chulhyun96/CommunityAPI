@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.home;
+package com.cheolhyeon.communityapi.module.common.home;
 
 import com.cheolhyeon.communityapi.module.post.controller.PostController;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
