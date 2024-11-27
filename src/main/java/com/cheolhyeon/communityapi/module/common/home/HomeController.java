@@ -26,7 +26,7 @@ public class HomeController {
     private final PostResourceAssembler postResourceAssembler;
 
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public ResponseEntity<PagedModel<EntityModel<PostResponsePageable>>> home(
             @PageableDefault(sort = "id") Pageable pageable,
             PagedResourcesAssembler<PostResponsePageable> assembler) {

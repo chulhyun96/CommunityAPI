@@ -27,7 +27,7 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     private static final String LOGIN_URL = "/login";
     private static final String SIGNUP_URL_USER = "/signup/user";
     private static final String SIGNUP_URL_ADMIN = "/signup/admin";
-    private static final String HOME = "/home";
+    private static final String HOME = "/";
 
     private final JWTProvider jwtProvider;
 

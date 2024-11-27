@@ -68,7 +68,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         String token = jwtProvider.generateToken(principal.getUsername(), getRole(authResult));
 
         response.addHeader(AUTHORIZATION_HEADER, getFormattedToken(token));
-        response.setHeader(HttpHeaders.LOCATION, "/home");
+        response.setHeader(HttpHeaders.LOCATION, "/");
         response.getWriter().write(prettyForPrint);
     }
 
