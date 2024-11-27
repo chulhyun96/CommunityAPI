@@ -17,8 +17,7 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ResponseEntity<?> getUserDetail(@PathVariable Long id,
                                            Principal principal) {
-        return ResponseEntity.ok().body(customUserDetailsService.getUser(
-                id, principal.getName())
-        );
+        return ResponseEntity.ok(customUserDetailsService.getUser(
+                id, principal.getName()));
     }
 }
