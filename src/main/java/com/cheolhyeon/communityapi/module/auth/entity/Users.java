@@ -2,6 +2,7 @@ package com.cheolhyeon.communityapi.module.auth.entity;
 
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
+import com.cheolhyeon.communityapi.module.common.BaseEntity;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

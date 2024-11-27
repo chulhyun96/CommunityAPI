@@ -3,10 +3,10 @@ package com.cheolhyeon.communityapi.module.auth.service;
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.user.UserResponse;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
-import com.cheolhyeon.communityapi.module.auth.exception.UserException;
+import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
-import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
+import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -96,7 +96,7 @@ class CustomUserDetailsServiceTest {
                 .willReturn(Optional.of(existingUser));
 
         // When
-        UserException exception = assertThrows(UserException.class,
+        AuthException exception = assertThrows(AuthException.class,
                 () -> customUserDetailsService.saveUser(request));
 
         // Then
@@ -105,7 +105,7 @@ class CustomUserDetailsServiceTest {
         then(usersRepository).shouldHaveNoMoreInteractions();
 
 
-        assertEquals(ErrorStatus.USER_ALREADY_EXIST.getMessage(), exception.getMessage());
+        assertEquals(AuthErrorStatus.USER_ALREADY_EXIST.getMessage(), exception.getMessage());
 
     }
     @Test
@@ -135,7 +135,7 @@ class CustomUserDetailsServiceTest {
         given(usersRepository.findById(anyLong())).willReturn(Optional.empty());
         given(usersRepository.findByUsername(anyString())).willReturn(Optional.empty());
         //when
-        assertThrows(UserException.class, () -> customUserDetailsService.getUser(1L,"Test1"));
+        assertThrows(AuthException.class, () -> customUserDetailsService.getUser(1L,"Test1"));
         //then
         then(usersRepository).should(times(1)).findById(anyLong());
     }

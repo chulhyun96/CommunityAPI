@@ -6,7 +6,7 @@ import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthResponse;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
 import com.cheolhyeon.communityapi.module.auth.dto.error.ErrorResponse;
 import com.cheolhyeon.communityapi.module.auth.security.jwt.JWTProvider;
-import com.cheolhyeon.communityapi.module.auth.type.ErrorStatus;
+import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
@@ -83,7 +83,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
 
         String prettyForPrint = JsonPrettyPrinter.getPrettyForPrint(objectMapper, (
-                ErrorResponse.create(ErrorStatus.ACCOUNT_NOT_EXISTS)
+                ErrorResponse.create(AuthErrorStatus.ACCOUNT_NOT_EXISTS)
         ));
 
         response.getWriter().write(prettyForPrint);
@@ -93,14 +93,14 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         return authResult.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .findAny()
-                .orElseThrow(() -> new AccessDeniedException(ErrorStatus.ACCOUNT_DOESNT_HAVE_NOT_ROLE.getErrorType()));
+                .orElseThrow(() -> new AccessDeniedException(AuthErrorStatus.ACCOUNT_DOESNT_HAVE_NOT_ROLE.getErrorType()));
     }
 
     private AuthRequest getAuthRequest(HttpServletRequest request) {
         try {
             return objectMapper.readValue(request.getInputStream(), AuthRequest.class);
         } catch (IOException e) {
-            throw new RuntimeException(ErrorStatus.JSON_PARSING_EXCEPTION.getMessage());
+            throw new RuntimeException(AuthErrorStatus.JSON_PARSING_EXCEPTION.getMessage());
         }
     }
 }
