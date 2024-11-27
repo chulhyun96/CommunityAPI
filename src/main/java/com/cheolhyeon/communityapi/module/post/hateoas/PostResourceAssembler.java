@@ -19,7 +19,11 @@ public class PostResourceAssembler extends RepresentationModelAssemblerSupport<P
     @Override
     public EntityModel<PostResponsePageable> toModel(PostResponsePageable postResponse) {
         EntityModel<PostResponsePageable> postModel = EntityModel.of(postResponse);
-        Link detailLink = linkTo(methodOn(PostController.class).getPost(postResponse.getPostId())).withSelfRel();
+
+        Link detailLink = linkTo(methodOn(PostController.class)
+                .getPost(postResponse.getPostId()))
+                .withRel("detail");
+
         postModel.add(detailLink);
         return postModel;
     }
