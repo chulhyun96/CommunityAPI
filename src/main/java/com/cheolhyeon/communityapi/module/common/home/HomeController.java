@@ -9,6 +9,7 @@ import com.cheolhyeon.communityapi.module.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.EntityModel;
@@ -28,7 +29,7 @@ public class HomeController {
 
     @GetMapping("/")
     public ResponseEntity<PagedModel<EntityModel<PostResponsePageable>>> home(
-            @PageableDefault(sort = "id") Pageable pageable,
+            @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             PagedResourcesAssembler<PostResponsePageable> assembler) {
 
         Page<PostResponsePageable> postAll = postService.getAllPosts(pageable);
