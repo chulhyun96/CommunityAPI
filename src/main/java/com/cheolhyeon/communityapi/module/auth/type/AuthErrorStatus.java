@@ -1,10 +1,11 @@
 package com.cheolhyeon.communityapi.module.auth.type;
 
+import com.cheolhyeon.communityapi.module.common.ErrorStatus;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public enum ErrorStatus {
+public enum AuthErrorStatus implements ErrorStatus {
     ACCOUNT_NOT_EXISTS(
             HttpStatus.BAD_REQUEST,
             HttpStatus.BAD_REQUEST.getReasonPhrase(),
@@ -39,7 +40,7 @@ public enum ErrorStatus {
     private final String errorType;
     private final String message;
 
-    ErrorStatus(HttpStatus status, String errorType, String message) {
+    AuthErrorStatus(HttpStatus status, String errorType, String message) {
         this.errorCode = status.value();
         this.errorType = errorType;
         this.message = message;
