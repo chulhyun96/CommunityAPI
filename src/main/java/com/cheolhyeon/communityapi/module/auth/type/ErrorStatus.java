@@ -28,6 +28,10 @@ public enum ErrorStatus {
             HttpStatus.BAD_REQUEST,
             HttpStatus.BAD_REQUEST.getReasonPhrase(),
             "해당 유저를 찾을 수 없습니다."
+    ),
+    UNAUTHORIZED(HttpStatus.UNAUTHORIZED,
+            HttpStatus.UNAUTHORIZED.getReasonPhrase(),
+            "타 이용자의 정보를 조회할 수 없습니다."
     );
 
 
