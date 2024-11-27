@@ -1,5 +1,7 @@
 package com.cheolhyeon.communityapi.module.auth.security.jwt;
 
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,25 +26,40 @@ public class JWTProvider {
     }
 
     public String getUsername(String token) {
-        return Jwts.parser().verifyWith(secretKey).build()
-                .parseSignedClaims(token)
-                .getPayload()
-                .get("username", String.class);
+        try {
+            return Jwts.parser().verifyWith(secretKey).build()
+                    .parseSignedClaims(token)
+                    .getPayload()
+                    .get("username", String.class);
+        } catch (JwtException e) {
+            log.error(e.getMessage());
+            return "ERROR";
+        }
     }
 
     public String getRoleAsString(String token) {
-        return Jwts.parser().verifyWith(secretKey).build()
-                .parseSignedClaims(token)
-                .getPayload()
-                .get("role", String.class);
+        try {
+            return Jwts.parser().verifyWith(secretKey).build()
+                    .parseSignedClaims(token)
+                    .getPayload()
+                    .get("role", String.class);
+        } catch (JwtException e) {
+            log.error(e.getMessage());
+            return "ERROR";
+        }
     }
 
     public boolean isExpired(String token) {
-        return Jwts.parser().verifyWith(secretKey).build()
-                .parseSignedClaims(token)
-                .getPayload()
-                .getExpiration()
-                .before(new Date());
+        try {
+            return Jwts.parser().verifyWith(secretKey).build()
+                    .parseSignedClaims(token)
+                    .getPayload()
+                    .getExpiration()
+                    .before(new Date());
+        } catch (ExpiredJwtException e) {
+            log.error(e.getMessage());
+            return true;
+        }
     }
 
     public String generateToken(String username, String role) {
