@@ -26,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users findUser = usersRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(username));
+                .orElseThrow(() -> new UserException(ErrorStatus.ACCOUNT_NOT_EXISTS));
 
         return CustomUserDetails.create(findUser);
     }
@@ -58,9 +58,16 @@ public class CustomUserDetailsService implements UserDetailsService {
                 AuthorityPolicy.ROLE_ADMIN
         ));
     }
-    public UserResponse getUser(Long id) {
-        Users user = usersRepository.findById(id)
+
+    public UserResponse getUser(Long id, String username) {
+        Users byId = usersRepository.findById(id)
                 .orElseThrow(() -> new UserException(ErrorStatus.USER_NOT_FOUND));
-        return UserResponse.create(user);
+        Users byName = usersRepository.findByUsername(username)
+                .orElseThrow(() -> new UserException(ErrorStatus.USER_NOT_FOUND));
+
+        if (!byId.equals(byName)) {
+            throw new UserException(ErrorStatus.UNAUTHORIZED);
+        }
+        return UserResponse.create(byId);
     }
 }
