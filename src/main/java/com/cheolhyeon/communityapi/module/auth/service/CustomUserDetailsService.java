@@ -59,10 +59,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         ));
     }
 
-    public UserResponse getUser(Long id, String username) {
-        Users byId = usersRepository.findById(id)
+    public UserResponse getUser(Long parameterId, String requestUsername) {
+        Users byId = usersRepository.findById(parameterId)
                 .orElseThrow(() -> new UserException(ErrorStatus.USER_NOT_FOUND));
-        Users byName = usersRepository.findByUsername(username)
+        Users byName = usersRepository.findByUsername(requestUsername)
                 .orElseThrow(() -> new UserException(ErrorStatus.USER_NOT_FOUND));
 
         if (!byId.equals(byName)) {
