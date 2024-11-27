@@ -12,18 +12,18 @@ public class AuthResponse {
     private String phoneNumber;
     private AuthorityPolicy role;
 
-    public static AuthResponse fromEntity(Users save) {
+    public static AuthResponse fromEntity(Users user) {
         return AuthResponse.builder()
-                .username(save.getUsername())
-                .phoneNumber(save.getPhoneNumber())
-                .role(save.getRole())
+                .username(user.getUsername())
+                .phoneNumber(user.getPhoneNumber())
+                .role(user.getRole())
                 .build();
     }
-    public static AuthResponse create(Users principal) {
+    public static AuthResponse create(Users user) {
         return AuthResponse.builder()
-                .username(principal.getUsername())
-                .phoneNumber(principal.getPhoneNumber())
-                .role(principal.getRole())
+                .username(user.getUsername())
+                .phoneNumber(user.getPhoneNumber())
+                .role(user.getRole())
                 .build();
     }
 }
