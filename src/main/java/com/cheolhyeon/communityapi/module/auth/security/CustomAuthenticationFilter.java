@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.AccessDeniedException;
@@ -52,9 +53,6 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         String username = authRequest.getUsername();
         String password = authRequest.getPassword();
 
-        log.info("Attempting to authenticate user: {}", username);
-        log.info("Attempting to authenticate password: {}", password);
-
         return authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(username, password)
         );
@@ -70,6 +68,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         String token = jwtProvider.generateToken(principal.getUsername(), getRole(authResult));
 
         response.addHeader(AUTHORIZATION_HEADER, getFormattedToken(token));
+        response.setHeader(HttpHeaders.LOCATION, "/home");
         response.getWriter().write(prettyForPrint);
     }
 
