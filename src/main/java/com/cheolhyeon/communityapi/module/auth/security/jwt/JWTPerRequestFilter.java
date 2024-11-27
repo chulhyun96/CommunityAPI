@@ -27,6 +27,7 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     private static final String LOGIN_URL = "/login";
     private static final String SIGNUP_URL_USER = "/signup/user";
     private static final String SIGNUP_URL_ADMIN = "/signup/admin";
+    private static final String HOME = "/home";
 
     private final JWTProvider jwtProvider;
 
@@ -43,7 +44,8 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     private boolean isPathEquals(String path) {
         return StringUtils.pathEquals(path, LOGIN_URL) ||
                 StringUtils.pathEquals(path, SIGNUP_URL_USER) ||
-                StringUtils.pathEquals(path, SIGNUP_URL_ADMIN);
+                StringUtils.pathEquals(path, SIGNUP_URL_ADMIN) ||
+                StringUtils.pathEquals(path, HOME);
     }
 
     @Override
