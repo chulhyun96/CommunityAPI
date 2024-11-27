@@ -57,7 +57,7 @@ public class SecurityConfig {
         applySessionPolicy(http);
         authorizeHttpRequestMatchers(http);
 
-        addFilter(http, JWTPerRequestFilter.create(jwtProvider),
+        addFilter(http, JWTPerRequestFilter.create(jwtProvider, objectMapper),
                 CustomAuthenticationFilter.create(authenticationManager(configuration),
                         objectMapper, jwtProvider)
         );
