@@ -39,6 +39,11 @@ public enum AuthErrorStatus implements ErrorStatus {
             HttpStatus.UNAUTHORIZED,
             HttpStatus.UNAUTHORIZED.getReasonPhrase(),
             "토큰이 만료되었습니다. 로그인해주세요."
+    ),
+    LOGIN_FIRST(
+            HttpStatus.BAD_REQUEST,
+            HttpStatus.BAD_REQUEST.getReasonPhrase(),
+            "로그인된 사용자만 이용가능합니다."
     );
 
 
