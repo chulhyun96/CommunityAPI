@@ -1,11 +1,10 @@
 package com.cheolhyeon.communityapi.module.auth.security.jwt;
 
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
-import com.cheolhyeon.communityapi.module.auth.dto.error.ErrorResponse;
+import com.cheolhyeon.communityapi.module.auth.dto.error.HandleAuthErrorFactory;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
-import com.cheolhyeon.communityapi.module.auth.util.JsonPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -58,12 +57,16 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
+        if (!StringUtils.hasText(bearerToken)) {
+            handleAuthorInvalid(response, AuthErrorStatus.LOGIN_FIRST);
+            return;
+        }
 
         TokenPolicy policy = TokenPolicy.getTokenPolicy(bearerToken, jwtProvider);
         String token = policy.apply(bearerToken);
 
         if (!StringUtils.hasText(token)) {
-            handleTokenInvalid(response);
+            handleAuthorInvalid(response, AuthErrorStatus.TOKEN_EXPIRED);
             return;
         }
 
@@ -87,15 +90,16 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
         return new UsernamePasswordAuthenticationToken(customUser, null, customUser.getAuthorities());
     }
 
-    private void handleTokenInvalid(HttpServletResponse response) throws IOException {
+    private void handleAuthorInvalid(HttpServletResponse response, AuthErrorStatus errorStatus) throws IOException {
+        setErrorHeaderInfo(response);
+        String errorResponseAsJson = HandleAuthErrorFactory.getErrorResponse(objectMapper, errorStatus);
+        response.getWriter().write(errorResponseAsJson);
+    }
+
+    private void setErrorHeaderInfo(HttpServletResponse response) {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setHeader(HttpHeaders.LOCATION, "/login");
         response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-
-        String prettyForPrint = JsonPrettyPrinter.getPrettyForPrint(objectMapper,
-                ErrorResponse.create(AuthErrorStatus.TOKEN_EXPIRED));
-
-        response.getWriter().write(prettyForPrint);
     }
 }
