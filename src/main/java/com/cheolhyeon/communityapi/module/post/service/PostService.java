@@ -5,7 +5,7 @@ import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
-import com.cheolhyeon.communityapi.module.post.dto.PostResponsePageable;
+import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.exception.PostException;
 import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
@@ -39,8 +39,8 @@ public class PostService {
                 () -> new PostException(PostErrorStatus.POST_NOT_FOUND));
     }
 
-    public Page<PostResponsePageable> getAllPosts(Pageable pageable) {
+    public Page<PostResponse> getAllPosts(Pageable pageable) {
         Page<Post> postList = postRepository.findAll(pageable);
-        return postList.map(PostResponsePageable::create);
+        return postList.map(PostResponse::create);
     }
 }

@@ -2,7 +2,6 @@ package com.cheolhyeon.communityapi.module.post.controller;
 
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
-import com.cheolhyeon.communityapi.module.post.dto.PostResponsePageable;
 import com.cheolhyeon.communityapi.module.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ public class PostController {
     @PostMapping("/post")
     public ResponseEntity<?> post(@RequestBody PostRequest postRequest,
                                   Principal principal) {
-        return ResponseEntity.ok().body(PostResponsePageable.create(
+        return ResponseEntity.ok().body(PostResponse.create(
                 postService.save(postRequest, principal.getName())
         ));
     }
