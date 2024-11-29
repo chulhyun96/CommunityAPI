@@ -34,9 +34,10 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public Post getPost(Long id) {
-        return postRepository.findById(id).orElseThrow(
+    public PostResponse getPost(Long id) {
+        Post post = postRepository.findById(id).orElseThrow(
                 () -> new PostException(PostErrorStatus.POST_NOT_FOUND));
+        return PostResponse.create(post);
     }
 
     public Page<PostResponse> getAllPosts(Pageable pageable) {
