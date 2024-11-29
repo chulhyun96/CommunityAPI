@@ -28,7 +28,7 @@ public class Post extends BaseEntity {
     @JoinColumn(name = "user_Id")
     private Users user;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
     private final List<Comment> comments = new ArrayList<>();
 
@@ -52,5 +52,9 @@ public class Post extends BaseEntity {
 
     public void assignUser(Users users) {
         this.user = users;
+    }
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+        comment.assignPost(this);
     }
 }

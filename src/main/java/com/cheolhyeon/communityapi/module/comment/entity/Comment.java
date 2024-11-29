@@ -33,4 +33,11 @@ public class Comment {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    public void assignUser(Users user) {
+        this.user = user;
+    }
+    public void assignPost(Post post) {
+        this.post = post;
+    }
 }

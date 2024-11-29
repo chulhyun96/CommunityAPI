@@ -34,11 +34,11 @@ public class Users extends BaseEntity {
     @Column(nullable = false, length = 15)
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
     private final List<Post> posts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",  cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
     private final List<Comment> comments = new ArrayList<>();
 
@@ -60,6 +60,10 @@ public class Users extends BaseEntity {
     public void addPost(Post post) {
         posts.add(post);
         post.assignUser(this);
+    }
+    public void addComment(Comment comment) {
+        comments.add(comment);
+        comment.assignUser(this);
     }
 
     public String getRoleAsString() {
