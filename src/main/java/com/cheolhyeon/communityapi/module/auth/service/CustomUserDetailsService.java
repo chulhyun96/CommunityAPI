@@ -59,15 +59,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         ));
     }
 
-    public UserResponse getUser(Long parameterId, String requestUsername) {
-        Users byId = usersRepository.findById(parameterId)
+    public UserResponse getUser(String username) {
+        Users findUser = usersRepository.findByUsername(username)
                 .orElseThrow(() -> new AuthException(AuthErrorStatus.USER_NOT_FOUND));
-        Users byName = usersRepository.findByUsername(requestUsername)
-                .orElseThrow(() -> new AuthException(AuthErrorStatus.USER_NOT_FOUND));
-
-        if (!byId.equals(byName)) {
-            throw new AuthException(AuthErrorStatus.UNAUTHORIZED);
-        }
-        return UserResponse.create(byId);
+        return UserResponse.create(findUser);
     }
 }

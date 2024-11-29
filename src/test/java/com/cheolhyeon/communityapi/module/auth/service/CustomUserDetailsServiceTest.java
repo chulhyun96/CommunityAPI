@@ -120,9 +120,8 @@ class CustomUserDetailsServiceTest {
                 .role(AuthorityPolicy.ROLE_USER)
                 .build();
         given(usersRepository.findById(anyLong())).willReturn(Optional.of(user));
-        given(usersRepository.findByUsername(anyString())).willReturn(Optional.of(user));
         //when
-        UserResponse findUser = customUserDetailsService.getUser(1L,anyString());
+        UserResponse findUser = customUserDetailsService.getUser("Test1");
         //then
         then(usersRepository).should(times(1)).findById(anyLong());
         assertEquals(user.getUsername(), findUser.getUsername());
@@ -134,7 +133,7 @@ class CustomUserDetailsServiceTest {
         //given
         given(usersRepository.findById(anyLong())).willReturn(Optional.empty());
         //when
-        assertThrows(AuthException.class, () -> customUserDetailsService.getUser(1L,"Test1"));
+        assertThrows(AuthException.class, () -> customUserDetailsService.getUser("Test1"));
         //then
         then(usersRepository).should(times(1)).findById(anyLong());
     }
