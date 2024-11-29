@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,12 @@ public class Post extends BaseEntity {
     @OrderBy("id desc")
     private final List<Comment> comments = new ArrayList<>();
 
+    @Length(max = 255)
     private String title;
+
+    @Lob
     private String content;
+
     private Integer commentCount;
 
     private Post(PostRequest postRequest) {
