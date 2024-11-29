@@ -17,7 +17,7 @@ public enum TokenPolicy {
     }
 
     public static TokenPolicy getTokenPolicy(String bearerToken, JWTProvider jwtProvider) {
-        if (isInvalidToken(bearerToken)) {
+        if (isInvalidFormat(bearerToken)) {
             log.info("Bearer token is Invalid");
             return NONE;
         }
@@ -32,7 +32,7 @@ public enum TokenPolicy {
         return function.apply(input);
     }
 
-    private static boolean isInvalidToken(String bearerToken) {
+    private static boolean isInvalidFormat(String bearerToken) {
         return !StringUtils.hasText(bearerToken) || !StringUtils.startsWithIgnoreCase(bearerToken, "Bearer");
     }
 
