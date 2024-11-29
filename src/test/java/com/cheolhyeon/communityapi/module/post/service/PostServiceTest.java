@@ -11,6 +11,7 @@ import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.exception.PostException;
 import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
 import com.cheolhyeon.communityapi.module.post.type.PostErrorStatus;
+import org.h2.engine.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -92,12 +93,15 @@ class PostServiceTest {
         //given
         Post post = Post.builder()
                 .id(1L)
+                .user(Users.builder()
+                        .username("Test-User")
+                        .build())
                 .title("Test-Title")
                 .content("Test-Content")
                 .build();
         given(postRepository.findById(anyLong())).willReturn(Optional.of(post));
         //when
-        Post findPost = postService.getPost(post.getId());
+        PostResponse findPost = postService.getPost(1L);
         //then
         then(postRepository).should(times(1)).findById(anyLong());
 
