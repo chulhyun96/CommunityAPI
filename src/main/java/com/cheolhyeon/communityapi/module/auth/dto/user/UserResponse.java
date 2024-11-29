@@ -13,12 +13,14 @@ public class UserResponse {
     private final String phoneNumber;
     private final AuthorityPolicy role;
     private final Integer countOfPosts;
+    private final Integer countOfComments;
 
     private UserResponse(Users user) {
         this.username = user.getUsername();
         this.phoneNumber = maskPhoneNumber(user.getPhoneNumber());
         this.role = user.getRole();
         this.countOfPosts = user.getPosts().size();
+        this.countOfComments = user.getComments().size();
     }
 
     public static UserResponse create(Users user) {
