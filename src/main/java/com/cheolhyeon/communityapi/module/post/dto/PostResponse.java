@@ -1,6 +1,8 @@
 package com.cheolhyeon.communityapi.module.post.dto;
 
 import com.cheolhyeon.communityapi.module.post.entity.Post;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -8,8 +10,12 @@ import java.time.LocalDate;
 @Getter
 public class PostResponse {
     private final String username;
+    @NotBlank(message = "제목을 입력해주세요.")
     private final String title;
+
+    @NotBlank(message = "내용을 입력해 주세요.")
     private final String content;
+
     private final Integer commentCount;
     private final LocalDate createdAt;
 
