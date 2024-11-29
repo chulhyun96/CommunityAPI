@@ -1,10 +1,13 @@
 package com.cheolhyeon.communityapi.module.post.controller;
 
+import com.cheolhyeon.communityapi.module.common.ErrorResponseBindingResult;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
 import com.cheolhyeon.communityapi.module.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -15,8 +18,15 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping("/post")
-    public ResponseEntity<?> post(@RequestBody PostRequest postRequest,
+    public ResponseEntity<?> save(@RequestBody @Validated PostRequest postRequest,
+                                  BindingResult bindingResult,
                                   Principal principal) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(
+                    ErrorResponseBindingResult.fromBindingResult(
+                    bindingResult.getFieldErrors()
+            ));
+        }
         return ResponseEntity.ok().body(PostResponse.create(
                 postService.save(postRequest, principal.getName())
         ));
