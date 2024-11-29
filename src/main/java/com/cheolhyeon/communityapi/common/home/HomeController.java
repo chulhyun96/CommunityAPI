@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.common.home;
+package com.cheolhyeon.communityapi.common.home;
 
 import com.cheolhyeon.communityapi.module.post.dto.PaginatedResponse;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;

@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.module.common;
+package com.cheolhyeon.communityapi.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

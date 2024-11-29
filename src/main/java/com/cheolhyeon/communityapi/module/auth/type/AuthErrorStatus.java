@@ -1,6 +1,6 @@
 package com.cheolhyeon.communityapi.module.auth.type;
 
-import com.cheolhyeon.communityapi.module.common.ErrorStatus;
+import com.cheolhyeon.communityapi.common.ErrorStatus;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 

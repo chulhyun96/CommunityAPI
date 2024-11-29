@@ -2,7 +2,7 @@ package com.cheolhyeon.communityapi.module.auth.controller;
 
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthResponse;
-import com.cheolhyeon.communityapi.module.common.ErrorResponseBindingResult;
+import com.cheolhyeon.communityapi.common.ErrorResponseBindingResult;
 import com.cheolhyeon.communityapi.module.auth.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

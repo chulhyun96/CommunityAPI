@@ -4,7 +4,7 @@ import com.cheolhyeon.communityapi.module.auth.util.JsonPrettyPrinter;
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthResponse;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
-import com.cheolhyeon.communityapi.module.common.ErrorResponse;
+import com.cheolhyeon.communityapi.common.ErrorResponse;
 import com.cheolhyeon.communityapi.module.auth.security.jwt.JWTProvider;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,6 +1,6 @@
 package com.cheolhyeon.communityapi.module.post.type;
 
-import com.cheolhyeon.communityapi.module.common.ErrorStatus;
+import com.cheolhyeon.communityapi.common.ErrorStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
