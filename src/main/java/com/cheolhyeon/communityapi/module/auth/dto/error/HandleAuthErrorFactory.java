@@ -2,6 +2,7 @@ package com.cheolhyeon.communityapi.module.auth.dto.error;
 
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.cheolhyeon.communityapi.module.auth.util.JsonPrettyPrinter;
+import com.cheolhyeon.communityapi.module.common.ErrorResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
