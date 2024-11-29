@@ -133,7 +133,6 @@ class CustomUserDetailsServiceTest {
     void fail_get_user() {
         //given
         given(usersRepository.findById(anyLong())).willReturn(Optional.empty());
-        given(usersRepository.findByUsername(anyString())).willReturn(Optional.empty());
         //when
         assertThrows(AuthException.class, () -> customUserDetailsService.getUser(1L,"Test1"));
         //then
