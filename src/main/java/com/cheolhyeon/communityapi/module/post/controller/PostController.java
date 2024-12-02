@@ -1,6 +1,7 @@
 package com.cheolhyeon.communityapi.module.post.controller;
 
 import com.cheolhyeon.communityapi.common.ErrorResponseBindingResult;
+import com.cheolhyeon.communityapi.module.post.dto.PostGetResponse;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
 import com.cheolhyeon.communityapi.module.post.service.PostService;
@@ -34,6 +35,6 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     public ResponseEntity<?> getPost(@PathVariable Long id) {
-        return ResponseEntity.ok(PostResponse.create(postService.getPost(id)));
+        return ResponseEntity.ok(postService.getPost(id));
     }
 }
