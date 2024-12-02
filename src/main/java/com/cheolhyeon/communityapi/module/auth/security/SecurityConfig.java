@@ -28,12 +28,12 @@ import java.util.Collections;
 @RequiredArgsConstructor
 public class SecurityConfig {
     public static final String AUTHORIZATION_HEADER = "Authorization";
+    public static final String[] PUBLIC_URIS = {"/", "/login", "/signup/**","/post/**"};
 
     /*React localHost 주소*/
     protected static final String HTTP_LOCALHOST_3000 = "http://localhost:3000";
 
     private static final String ROOT_PATH_PATTERN = "*";
-    private static final String[] PUBLIC_URIS = {"/", "/login", "/signup/**"};
     private static final String[] ADMIN_URI = {"/admin/**"};
 
     private final AuthenticationConfiguration configuration;
