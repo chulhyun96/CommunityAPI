@@ -14,10 +14,10 @@ public class CommentResponse {
     private final String username;
 
     private CommentResponse(Comment comment, Post post, Users user) {
-        this.commentId = comment.getId();
-        this.commentContent = comment.getContent();
         this.postId = post.getId();
         this.postTitle = post.getTitle();
+        this.commentId = comment.getId();
+        this.commentContent = comment.getContent();
         this.username = user.getUsername();
     }
     public static CommentResponse create(Comment comment, Post post, Users user) {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 
 
 @RestController
@@ -21,6 +22,7 @@ public class CommentController {
 
     @PostMapping("/post/{postId}/comment")
     public ResponseEntity<?> save(@PathVariable Long postId,
+                                  Principal principal,
                                   @RequestBody @Validated CommentRequest commentRequest,
                                   BindingResult bindingResult) {
 
@@ -30,6 +32,6 @@ public class CommentController {
                             bindingResult.getFieldErrors()
                     ));
         }
-        return ResponseEntity.ok(commentService.save(postId, commentRequest));
+        return ResponseEntity.ok(commentService.save(postId, principal.getName(), commentRequest));
     }
 }

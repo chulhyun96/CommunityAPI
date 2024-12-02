@@ -55,6 +55,7 @@ public class Post extends BaseEntity {
     }
     public void addComment(Comment comment) {
         this.comments.add(comment);
+        commentCount = comments.size();
         comment.assignPost(this);
     }
 }
