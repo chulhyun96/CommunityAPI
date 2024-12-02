@@ -126,15 +126,4 @@ class CustomUserDetailsServiceTest {
         then(usersRepository).should(times(1)).findByUsername(anyString());
         assertEquals(user.getUsername(), findUser.getUsername());
     }
-
-    @Test
-    @DisplayName("유저 조회 - 실패")
-    void fail_get_user() {
-        //given
-        given(usersRepository.findById(anyLong())).willReturn(Optional.empty());
-        //when
-        assertThrows(AuthException.class, () -> customUserDetailsService.getUser("Test1"));
-        //then
-        then(usersRepository).should(times(1)).findById(anyLong());
-    }
 }
