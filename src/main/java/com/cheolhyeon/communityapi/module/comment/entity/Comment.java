@@ -1,6 +1,7 @@
 package com.cheolhyeon.communityapi.module.comment.entity;
 
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
+import com.cheolhyeon.communityapi.module.comment.dto.CommentRequest;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,14 @@ public class Comment {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    private Comment (CommentRequest commentRequest) {
+        this.content = commentRequest.getContent();
+    }
+
+    public static Comment create(CommentRequest request) {
+        return new Comment(request);
+    }
 
     public void assignUser(Users user) {
         this.user = user;
