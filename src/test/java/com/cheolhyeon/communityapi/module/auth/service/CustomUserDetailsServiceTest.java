@@ -119,11 +119,11 @@ class CustomUserDetailsServiceTest {
                 .phoneNumber("010-123-4567")
                 .role(AuthorityPolicy.ROLE_USER)
                 .build();
-        given(usersRepository.findById(anyLong())).willReturn(Optional.of(user));
+        given(usersRepository.findByUsername(anyString())).willReturn(Optional.of(user));
         //when
         UserResponse findUser = customUserDetailsService.getUser("Test1");
         //then
-        then(usersRepository).should(times(1)).findById(anyLong());
+        then(usersRepository).should(times(1)).findByUsername(anyString());
         assertEquals(user.getUsername(), findUser.getUsername());
     }
 
