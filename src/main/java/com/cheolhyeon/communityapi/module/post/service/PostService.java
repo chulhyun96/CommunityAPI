@@ -8,11 +8,14 @@ import com.cheolhyeon.communityapi.module.comment.entity.Comment;
 import com.cheolhyeon.communityapi.module.comment.repository.CommentRepository;
 import com.cheolhyeon.communityapi.module.post.dto.PostGetResponse;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
+import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.exception.PostException;
 import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
 import com.cheolhyeon.communityapi.module.post.type.PostErrorStatus;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,9 +49,8 @@ public class PostService {
         return PostGetResponse.create(post, username, commentByPostId);
     }
 
-    /*public Page<PostResponse> getAllPosts(Pageable pageable) {
+    public Page<PostResponse> getAllPosts(Pageable pageable) {
         Page<Post> postList = postRepository.findAll(pageable);
-        List<Post> content = postList.getContent();
-        return postList.map(post -> PostResponse.create(post, commentsByPostId));
-    }*/
+        return postList.map(PostResponse::create);
+    }
 }
