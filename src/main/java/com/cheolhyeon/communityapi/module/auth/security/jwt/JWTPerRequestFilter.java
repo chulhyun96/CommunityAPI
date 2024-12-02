@@ -16,24 +16,22 @@ import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.AntPathMatcher;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.http.HttpHeaders;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.AUTHORIZATION_HEADER;
+import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.PUBLIC_URIS;
 
 
 @Slf4j
 @RequiredArgsConstructor
 public class JWTPerRequestFilter extends OncePerRequestFilter {
-    private static final String LOGIN_URL = "/login";
-    private static final String SIGNUP_URL_USER = "/signup/user";
-    private static final String SIGNUP_URL_ADMIN = "/signup/admin";
-    private static final String HOME = "/";
-
     private final JWTProvider jwtProvider;
     private final ObjectMapper objectMapper;
 
@@ -48,10 +46,8 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     }
 
     private boolean isPathEquals(String path) {
-        return StringUtils.pathEquals(path, LOGIN_URL) ||
-                StringUtils.pathEquals(path, SIGNUP_URL_USER) ||
-                StringUtils.pathEquals(path, SIGNUP_URL_ADMIN) ||
-                StringUtils.pathEquals(path, HOME);
+        return Arrays.stream(PUBLIC_URIS)
+                .anyMatch(publicUri -> new AntPathMatcher().match(publicUri, path));
     }
 
     @Override
