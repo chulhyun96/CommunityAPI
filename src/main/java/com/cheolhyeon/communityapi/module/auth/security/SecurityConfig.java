@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -26,9 +27,10 @@ import java.util.Collections;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+@EnableMethodSecurity
 public class SecurityConfig {
     public static final String AUTHORIZATION_HEADER = "Authorization";
-    public static final String[] PUBLIC_URIS = {"/", "/login", "/signup/**","/post/**"};
+    public static final String[] PUBLIC_URIS = {"/", "/login", "/signup/**","/post/{postId}"};
 
     /*React localHost 주소*/
     protected static final String HTTP_LOCALHOST_3000 = "http://localhost:3000";
