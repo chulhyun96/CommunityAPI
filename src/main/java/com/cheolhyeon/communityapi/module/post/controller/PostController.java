@@ -34,6 +34,6 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     public ResponseEntity<?> getPost(@PathVariable Long id) {
-        return ResponseEntity.ok(postService.getPost(id));
+        return ResponseEntity.ok(PostResponse.create(postService.getPost(id)));
     }
 }

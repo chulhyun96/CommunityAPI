@@ -6,12 +6,10 @@ import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
-import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.exception.PostException;
 import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
 import com.cheolhyeon.communityapi.module.post.type.PostErrorStatus;
-import org.h2.engine.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -99,11 +97,11 @@ class PostServiceTest {
                 .title("Test-Title")
                 .content("Test-Content")
                 .build();
-        given(postRepository.findById(anyLong())).willReturn(Optional.of(post));
+        given(postRepository.findPostWithUser(anyLong())).willReturn(Optional.of(post));
         //when
-        PostResponse findPost = postService.getPost(1L);
+        Post findPost = postService.getPost(1L);
         //then
-        then(postRepository).should(times(1)).findById(anyLong());
+        then(postRepository).should(times(1)).findPostWithUser(1L);
 
         assertEquals(post.getTitle(), findPost.getTitle());
         assertEquals(post.getContent(), findPost.getContent());
@@ -112,7 +110,7 @@ class PostServiceTest {
     @DisplayName("게시글 단일 조회 - 실패")
     void fail_post_getPost() {
         //given
-        given(postRepository.findById(anyLong())).willReturn(Optional.empty());
+        given(postRepository.findPostWithUser(anyLong())).willReturn(Optional.empty());
         //when
         PostException exception = assertThrows(
                 PostException.class, () -> postService.getPost(anyLong())
