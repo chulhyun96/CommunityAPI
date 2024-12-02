@@ -6,10 +6,7 @@ import com.cheolhyeon.communityapi.module.comment.entity.Comment;
 import com.cheolhyeon.communityapi.common.BaseEntity;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +33,11 @@ public class Users extends BaseEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
-    private final List<Post> posts = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user",  cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
-    private final List<Comment> comments = new ArrayList<>();
+    private List<Comment> comments = new ArrayList<>();
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -69,4 +66,5 @@ public class Users extends BaseEntity {
     public String getRoleAsString() {
         return role.toString();
     }
+
 }
