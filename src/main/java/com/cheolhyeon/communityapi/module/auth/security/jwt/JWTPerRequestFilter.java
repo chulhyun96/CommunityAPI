@@ -25,8 +25,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.AUTHORIZATION_HEADER;
-import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.PUBLIC_URIS;
+import static com.cheolhyeon.communityapi.module.auth.security.SecurityConfig.*;
 
 
 @Slf4j
@@ -46,7 +45,7 @@ public class JWTPerRequestFilter extends OncePerRequestFilter {
     }
 
     private boolean isPathEquals(String path) {
-        return Arrays.stream(PUBLIC_URIS)
+        return publicUris.stream()
                 .anyMatch(publicUri -> new AntPathMatcher().match(publicUri, path));
     }
 

@@ -21,6 +21,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.util.Collections;
+import java.util.List;
 
 
 @Configuration
@@ -28,18 +29,19 @@ import java.util.Collections;
 @RequiredArgsConstructor
 public class SecurityConfig {
     public static final String AUTHORIZATION_HEADER = "Authorization";
-    public static final String[] PUBLIC_URIS = {"/", "/login", "/signup/**", "/post/{id}"};
+
+    private static final String[] PUBLIC_URIS = {"/", "/login", "/signup/**", "/post/{id}"};
+    private static final String ROOT_PATH_PATTERN = "*";
+    private static final String[] ADMIN_URI = {"/admin/**"};
+
+    public static List<String> publicUris = List.of(PUBLIC_URIS);
 
     /*React localHost 주소*/
     protected static final String HTTP_LOCALHOST_3000 = "http://localhost:3000";
 
-    private static final String ROOT_PATH_PATTERN = "*";
-    private static final String[] ADMIN_URI = {"/admin/**"};
-
     private final AuthenticationConfiguration configuration;
     private final ObjectMapper objectMapper;
     private final JWTProvider jwtProvider;
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
