@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -19,10 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
     private final PostService postService;
 
-
     @GetMapping("/")
     public ResponseEntity<?> home(
-            @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+            @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @RequestParam(required = false) String sort) {
+        if ("comments".equals(sort)) {
+            return ResponseEntity.ok(PaginatedResponse.create
+                    (postService.getCommentsSortedPageable(pageable))
+            );
+        }
         Page<PostResponse> allPosts = postService.getAllPosts(pageable);
         return ResponseEntity.ok(PaginatedResponse.create(allPosts));
     }

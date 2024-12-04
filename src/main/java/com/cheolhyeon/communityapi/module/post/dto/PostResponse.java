@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.time.LocalDate;
 
 @Getter
-public class PostResponse {
+public class PostResponse implements Comparable<PostResponse> {
     private final String username;
     private final String title;
     private final Integer commentCount;
@@ -21,5 +21,10 @@ public class PostResponse {
 
     public static PostResponse create(Post post) {
         return new PostResponse(post);
+    }
+
+    @Override
+    public int compareTo(PostResponse o) {
+        return Integer.compare(o.commentCount, this.commentCount);
     }
 }

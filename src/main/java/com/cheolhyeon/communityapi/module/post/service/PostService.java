@@ -15,11 +15,13 @@ import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
 import com.cheolhyeon.communityapi.module.post.type.PostErrorStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -53,4 +55,19 @@ public class PostService {
         Page<Post> postList = postRepository.findAll(pageable);
         return postList.map(PostResponse::create);
     }
+
+    public Page<PostResponse> getCommentsSortedPageable(Pageable pageable) {
+        int limit = pageable.getPageSize();
+        int offset = pageable.getPageNumber() * pageable.getPageSize();
+
+        List<Post> postList = postRepository.findAllByCommentsCount(limit, offset);
+
+        List<PostResponse> postResponseList = postList.stream()
+                .map(PostResponse::create)
+                .sorted()
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(postResponseList, pageable, postList.size());
+    }
+
 }
