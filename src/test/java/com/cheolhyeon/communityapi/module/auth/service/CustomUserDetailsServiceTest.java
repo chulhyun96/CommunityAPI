@@ -7,6 +7,8 @@ import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
+import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
+import com.cheolhyeon.communityapi.module.post.entity.Post;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -118,12 +121,18 @@ class CustomUserDetailsServiceTest {
                 .password("password")
                 .phoneNumber("010-123-4567")
                 .role(AuthorityPolicy.ROLE_USER)
+                .posts(new ArrayList<>())
+                .comments(new ArrayList<>())
                 .build();
+        UserResponse userResponse = UserResponse.create(user);
+
         given(usersRepository.findByUsername(anyString())).willReturn(Optional.of(user));
+
         //when
-        UserResponse findUser = customUserDetailsService.getUser("Test1");
+        UserResponse findUser = customUserDetailsService.getUser(user.getUsername());
+
         //then
         then(usersRepository).should(times(1)).findByUsername(anyString());
-        assertEquals(user.getUsername(), findUser.getUsername());
+        assertEquals(userResponse.getUsername(), findUser.getUsername());
     }
 }

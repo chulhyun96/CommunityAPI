@@ -5,18 +5,24 @@ import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
+import com.cheolhyeon.communityapi.module.comment.dto.CommentRequest;
+import com.cheolhyeon.communityapi.module.comment.repository.CommentRepository;
+import com.cheolhyeon.communityapi.module.post.dto.PostGetResponse;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.exception.PostException;
 import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
 import com.cheolhyeon.communityapi.module.post.type.PostErrorStatus;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.ActiveProfiles;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,7 +30,8 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
-
+@Transactional
+@ActiveProfiles("test")
 @ExtendWith(MockitoExtension.class)
 class PostServiceTest {
     @Mock
@@ -32,6 +39,9 @@ class PostServiceTest {
 
     @Mock
     UsersRepository usersRepository;
+
+    @Mock
+    CommentRepository commentRepository;
 
     @InjectMocks
     PostService postService;
@@ -46,6 +56,8 @@ class PostServiceTest {
                 .password("Test-Password")
                 .role(AuthorityPolicy.ROLE_ADMIN)
                 .phoneNumber("010-2344-2344")
+                .posts(new ArrayList<>())
+                .comments(new ArrayList<>())
                 .build();
 
         PostRequest postRequest = PostRequest.builder()
@@ -96,15 +108,17 @@ class PostServiceTest {
                         .build())
                 .title("Test-Title")
                 .content("Test-Content")
+                .commentCount(1)
                 .build();
         given(postRepository.findPostWithUser(anyLong())).willReturn(Optional.of(post));
+        given(commentRepository.findByPostId(anyLong())).willReturn(new ArrayList<>());
+
         //when
-        Post findPost = postService.getPost(1L);
+        PostGetResponse findPost = postService.getPost(1L);
         //then
         then(postRepository).should(times(1)).findPostWithUser(1L);
-
         assertEquals(post.getTitle(), findPost.getTitle());
-        assertEquals(post.getContent(), findPost.getContent());
+        assertEquals(post.getUser().getUsername(), findPost.getUsername());
     }
     @Test
     @DisplayName("게시글 단일 조회 - 실패")
