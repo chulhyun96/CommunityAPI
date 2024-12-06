@@ -2,7 +2,7 @@ package com.cheolhyeon.communityapi.module.auth.service;
 
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
-import com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfo;
+import com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfoResponse;
 import com.cheolhyeon.communityapi.module.auth.dto.user.MyInfoResponse;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
@@ -10,7 +10,6 @@ import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -57,20 +56,26 @@ public class CustomUserDetailsService implements UserDetailsService {
         ));
     }
 
+    /**
+     * 내 정보 조회
+     */
+    public MyInfoResponse getMyInfo(String username) {
+        return MyInfoResponse.create(findUser(username));
+    }
+
+    /**
+     * 타인의 정보 조회
+     */
+    public GeneralUserInfoResponse getUserInfo(String username) {
+        return GeneralUserInfoResponse.create(findUser(username));
+    }
+
     private boolean existUser(AuthRequest request) {
         return usersRepository.findByUsername(request.getUsername()).isPresent();
     }
 
-    public MyInfoResponse getMyInfo(String username) {
-        return MyInfoResponse.create(findUser(username, AuthErrorStatus.USER_NOT_FOUND));
-    }
-
-    public GeneralUserInfo getUserInfo(String username) {
-        return GeneralUserInfo.create(findUser(username, AuthErrorStatus.USER_NOT_FOUND));
-    }
-
-    private Users findUser(String username, AuthErrorStatus authErrorStatus) {
+    private Users findUser(String username) {
         return usersRepository.findByUsername(username)
-                .orElseThrow(() -> new AuthException(authErrorStatus));
+                .orElseThrow(() -> new AuthException(AuthErrorStatus.USER_NOT_FOUND));
     }
 }
