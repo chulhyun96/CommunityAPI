@@ -18,8 +18,16 @@ public class UserController {
      * 내 정보 보기
      */
     @GetMapping("/user")
-    public ResponseEntity<?> getUserDetail(Authentication authentication) {
+    public ResponseEntity<?> getMyInfoDetail(Authentication authentication) {
         CustomUserDetails user = (CustomUserDetails) authentication.getPrincipal();
         return ResponseEntity.ok(userService.getMyInfo(user.getUsername()));
+    }
+
+    /**
+     * 타인 정보 보기
+     */
+    @GetMapping("/user/{username}")
+    public ResponseEntity<?> getUserInfo(@PathVariable("username") String username) {
+        return ResponseEntity.ok(userService.getUserInfo(username));
     }
 }
