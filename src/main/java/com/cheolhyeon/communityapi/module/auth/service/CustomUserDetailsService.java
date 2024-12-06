@@ -65,6 +65,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         return MyInfoResponse.create(findUser(username, AuthErrorStatus.USER_NOT_FOUND));
     }
 
+    public GeneralUserInfo getUserInfo(String username) {
+        return GeneralUserInfo.create(findUser(username, AuthErrorStatus.USER_NOT_FOUND));
+    }
+
     private Users findUser(String username, AuthErrorStatus authErrorStatus) {
         return usersRepository.findByUsername(username)
                 .orElseThrow(() -> new AuthException(authErrorStatus));
