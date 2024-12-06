@@ -27,7 +27,7 @@ public class UserController {
      * 타인 정보 보기
      */
     @GetMapping("/user/{username}")
-    public ResponseEntity<?> getUserInfo(@PathVariable("username") String username) {
+    public ResponseEntity<?> getUserInfoDetail(@PathVariable("username") String username) {
         return ResponseEntity.ok(userService.getUserInfo(username));
     }
 }
