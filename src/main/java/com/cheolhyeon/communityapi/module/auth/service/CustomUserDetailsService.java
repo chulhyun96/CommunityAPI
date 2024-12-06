@@ -2,13 +2,15 @@ package com.cheolhyeon.communityapi.module.auth.service;
 
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
-import com.cheolhyeon.communityapi.module.auth.dto.user.UserResponse;
+import com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfo;
+import com.cheolhyeon.communityapi.module.auth.dto.user.MyInfoResponse;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -33,11 +35,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Transactional
     public Users saveUser(AuthRequest request) {
-        usersRepository.findByUsername(request.getUsername())
-                .ifPresent(it -> {
-                    throw new AuthException(AuthErrorStatus.USER_ALREADY_EXIST);
-                });
-
+        if (existUser(request)) {
+            throw new AuthException(AuthErrorStatus.USER_ALREADY_EXIST);
+        }
         return usersRepository.save(Users.create(
                 request,
                 passwordEncoder.encode(request.getPassword()),
@@ -47,11 +47,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Transactional
     public Users saveAdmin(AuthRequest request) {
-        usersRepository.findByUsername(request.getUsername())
-                .ifPresent(it -> {
-                    throw new AuthException(AuthErrorStatus.USER_ALREADY_EXIST);
-                });
-
+        if (existUser(request)) {
+            throw new AuthException(AuthErrorStatus.USER_ALREADY_EXIST);
+        }
         return usersRepository.save(Users.create(
                 request,
                 passwordEncoder.encode(request.getPassword()),
@@ -59,9 +57,16 @@ public class CustomUserDetailsService implements UserDetailsService {
         ));
     }
 
-    public UserResponse getUser(String username) {
-        Users findUser = usersRepository.findByUsername(username)
-                .orElseThrow(() -> new AuthException(AuthErrorStatus.USER_NOT_FOUND));
-        return UserResponse.create(findUser);
+    private boolean existUser(AuthRequest request) {
+        return usersRepository.findByUsername(request.getUsername()).isPresent();
+    }
+
+    public MyInfoResponse getMyInfo(String username) {
+        return MyInfoResponse.create(findUser(username, AuthErrorStatus.USER_NOT_FOUND));
+    }
+
+    private Users findUser(String username, AuthErrorStatus authErrorStatus) {
+        return usersRepository.findByUsername(username)
+                .orElseThrow(() -> new AuthException(authErrorStatus));
     }
 }
