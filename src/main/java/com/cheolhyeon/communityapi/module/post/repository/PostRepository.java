@@ -11,8 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
-    @Query("SELECT p FROM Post p JOIN FETCH p.user WHERE p.id = :id")
-    Optional<Post> findPostWithUser(Long id);
+    @Query("""
+                SELECT p FROM Post p
+                JOIN FETCH p.user
+                LEFT JOIN FETCH p.comments c
+                LEFT JOIN FETCH c.user
+                WHERE p.id = :id
+            """)
+    Optional<Post> findPostWithCommentsAndUsers(Long id);
 
 
     @Query(value =

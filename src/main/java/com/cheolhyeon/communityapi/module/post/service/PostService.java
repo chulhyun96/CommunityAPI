@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
 public class PostService {
     private final PostRepository postRepository;
     private final UsersRepository usersRepository;
-    private final CommentRepository commentRepository;
 
     @Transactional
     public Post save(PostRequest postRequest, String username) {
@@ -43,12 +42,11 @@ public class PostService {
     }
 
     public PostGetResponse getPost(Long id) {
-        Post post = postRepository.findPostWithUser(id).orElseThrow(
+        Post post = postRepository.findPostWithCommentsAndUsers(id).orElseThrow(
                 () -> new PostException(PostErrorStatus.POST_NOT_FOUND)
         );
-        List<Comment> commentByPostId = commentRepository.findByPostId(id);
-        String username = post.getUser().getUsername();
-        return PostGetResponse.create(post, username, commentByPostId);
+        String username = post.getWriter();
+        return PostGetResponse.create(post, username, post.getComments());
     }
 
     public Page<PostResponse> getAllPosts(Pageable pageable) {
