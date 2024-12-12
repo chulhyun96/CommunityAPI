@@ -60,33 +60,20 @@ public class CustomUserDetailsService implements UserDetailsService {
         return usersRepository.findByUsername(request.getUsername()).isPresent();
     }
 
-    /**
-     * 내 정보 조회
-     */
     public MyInfoResponse getMyInfo(String username) {
         return usersRepository.findMyInfoByUsernameWithPostCommentDto(username)
                 .orElseThrow(() -> new AuthException(AuthErrorStatus.ACCOUNT_NOT_EXISTS));
     }
 
-    /**
-     * 타인의 정보 조회
-     */
     public GeneralUserInfoResponse getUserInfo(String username) {
         return usersRepository.findUserInfoByUsernameWithPostCommentDto(username)
                 .orElseThrow(() -> new AuthException(AuthErrorStatus.ACCOUNT_NOT_EXISTS));
     }
 
-    /**
-     * 내 정보 변경
-     */
     /*public MyInfoResponse updateMyInfo(String username, UpdateMyInfoRequest request) {
         Users user = findUser(username);
         user.updateMyInfo(user, request);
         return MyInfoResponse.create(findUser(username));
     }*/
 
-    private Users findUser(String username) {
-        return usersRepository.findByUsername(username)
-                .orElseThrow(() -> new AuthException(AuthErrorStatus.USER_NOT_FOUND));
-    }
 }
