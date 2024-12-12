@@ -30,8 +30,6 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
-@Transactional
-@ActiveProfiles("test")
 @ExtendWith(MockitoExtension.class)
 class PostServiceTest {
     @Mock
@@ -110,13 +108,12 @@ class PostServiceTest {
                 .content("Test-Content")
                 .commentCount(1)
                 .build();
-        given(postRepository.findPostWithUser(anyLong())).willReturn(Optional.of(post));
-        given(commentRepository.findByPostId(anyLong())).willReturn(new ArrayList<>());
+        given(postRepository.findPostWithCommentsAndUsers(anyLong())).willReturn(Optional.of(post));
 
         //when
         PostGetResponse findPost = postService.getPost(1L);
         //then
-        then(postRepository).should(times(1)).findPostWithUser(1L);
+        then(postRepository).should(times(1)).findPostWithCommentsAndUsers(1L);
         assertEquals(post.getTitle(), findPost.getTitle());
         assertEquals(post.getUser().getUsername(), findPost.getUsername());
     }
@@ -124,7 +121,7 @@ class PostServiceTest {
     @DisplayName("게시글 단일 조회 - 실패")
     void fail_post_getPost() {
         //given
-        given(postRepository.findPostWithUser(anyLong())).willReturn(Optional.empty());
+        given(postRepository.findPostWithCommentsAndUsers(anyLong())).willReturn(Optional.empty());
         //when
         PostException exception = assertThrows(
                 PostException.class, () -> postService.getPost(anyLong())
