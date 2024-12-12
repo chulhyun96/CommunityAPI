@@ -18,6 +18,9 @@ import java.security.Principal;
 public class PostController {
     private final PostService postService;
 
+    /**
+     * 게시글 등록
+     */
     @PostMapping("/post")
     public ResponseEntity<?> save(@RequestBody @Validated PostRequest postRequest,
                                   BindingResult bindingResult,
@@ -33,6 +36,9 @@ public class PostController {
         ));
     }
 
+    /**
+     * 게시글 조회
+     */
     @GetMapping("/post/{id}")
     public ResponseEntity<?> getPost(@PathVariable Long id) {
         return ResponseEntity.ok(postService.getPost(id));
