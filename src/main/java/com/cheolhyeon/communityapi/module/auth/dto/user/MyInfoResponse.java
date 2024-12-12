@@ -9,19 +9,24 @@ public class MyInfoResponse {
     private final String username;
     private final String phoneNumber;
     private final AuthorityPolicy role;
-    private final Integer countOfPosts;
-    private final Integer countOfComments;
+    private final Long countOfPosts;
+    private final Long countOfComments;
 
-    private MyInfoResponse(Users user) {
-        this.username = user.getUsername();
-        this.phoneNumber = maskPhoneNumber(user.getPhoneNumber());
-        this.role = user.getRole();
-        this.countOfPosts = user.getPosts().size();
-        this.countOfComments = user.getComments().size();
+    private MyInfoResponse(String username, String phoneNumber,
+                           AuthorityPolicy role, Long countOfPosts,
+                           Long countOfComments) {
+        this.username = username;
+        this.phoneNumber = maskPhoneNumber(phoneNumber);
+        this.role = role;
+        this.countOfPosts = countOfPosts;
+        this.countOfComments = countOfComments;
     }
 
-    public static MyInfoResponse create(Users user) {
-        return new MyInfoResponse(user);
+    public static MyInfoResponse create(String username, String phoneNumber,
+                                        AuthorityPolicy role, Long countOfPosts,
+                                        Long countOfComments) {
+        return new MyInfoResponse(username, phoneNumber,
+                role, countOfPosts, countOfComments);
     }
 
     private String maskPhoneNumber(String phoneNumber) {
