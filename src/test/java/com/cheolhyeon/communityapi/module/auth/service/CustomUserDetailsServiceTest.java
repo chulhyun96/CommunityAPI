@@ -1,15 +1,14 @@
 package com.cheolhyeon.communityapi.module.auth.service;
 
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
-import com.cheolhyeon.communityapi.module.auth.dto.user.UserResponse;
+import com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfoResponse;
+import com.cheolhyeon.communityapi.module.auth.dto.user.MyInfoResponse;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
-import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
-import com.cheolhyeon.communityapi.module.post.entity.Post;
-import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -28,8 +26,6 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 
-@Transactional
-@ActiveProfiles("test")
 @ExtendWith(MockitoExtension.class)
 class CustomUserDetailsServiceTest {
     @Mock
@@ -38,11 +34,11 @@ class CustomUserDetailsServiceTest {
     @Mock
     private PasswordEncoder passwordEncoder;
 
-    CustomUserDetailsService customUserDetailsService;
+    CustomUserDetailsService userService;
 
     @BeforeEach
     void setUp() {
-        this.customUserDetailsService = new CustomUserDetailsService(usersRepository,passwordEncoder);
+        this.userService = new CustomUserDetailsService(usersRepository,passwordEncoder);
     }
 
     @Test
@@ -67,7 +63,7 @@ class CustomUserDetailsServiceTest {
         given(usersRepository.save(any(Users.class))).willReturn(entity);
 
         //when
-        Users savedUser = customUserDetailsService.saveUser(request);
+        Users savedUser = userService.saveUser(request);
 
         //then
         then(usersRepository).should(times(1)).save(any(Users.class));
@@ -100,7 +96,7 @@ class CustomUserDetailsServiceTest {
 
         // When
         AuthException exception = assertThrows(AuthException.class,
-                () -> customUserDetailsService.saveUser(request));
+                () -> userService.saveUser(request));
 
         // Then
         then(usersRepository).should(times(0)).save(any(Users.class));
@@ -112,8 +108,25 @@ class CustomUserDetailsServiceTest {
 
     }
     @Test
-    @DisplayName("유저 조회 - 성공")
-    void success_get_user() {
+    @DisplayName("내 정보 조회 - 성공")
+    void success_get_MyInfo() {
+        //given
+        MyInfoResponse myInfoResponse = MyInfoResponse.create(
+                "TestA", "010-123-4567", AuthorityPolicy.ROLE_USER, 1L, 1L
+        );
+        given(usersRepository.findMyInfoByUsernameWithPostCommentDto(anyString())).willReturn(
+                Optional.of(myInfoResponse));
+
+        //when
+        MyInfoResponse response = userService.getMyInfo("TestA");
+
+        //then
+        then(usersRepository).should(times(1)).findMyInfoByUsernameWithPostCommentDto(anyString());
+        assertEquals(myInfoResponse, response);
+    }
+    @Test
+    @DisplayName("타 유저 정보 조회 - 성공")
+    void success_get_UserInfo() {
         //given
         Users user = Users.builder()
                 .id(1L)
@@ -124,15 +137,31 @@ class CustomUserDetailsServiceTest {
                 .posts(new ArrayList<>())
                 .comments(new ArrayList<>())
                 .build();
-        UserResponse userResponse = UserResponse.create(user);
-
-        given(usersRepository.findByUsername(anyString())).willReturn(Optional.of(user));
+        given(usersRepository.findByUsername(anyString()))
+                .willReturn(Optional.of(user));
 
         //when
-        UserResponse findUser = customUserDetailsService.getUser(user.getUsername());
+        GeneralUserInfoResponse userInfo = userService.getUserInfo(user.getUsername());
 
         //then
         then(usersRepository).should(times(1)).findByUsername(anyString());
-        assertEquals(userResponse.getUsername(), findUser.getUsername());
+        assertEquals(userInfo.getUsername(), user.getUsername());
+
+    }
+    @Test
+    @DisplayName("타 유저 정보 조회 - 실패")
+    void fail_get_UserInfo() {
+        //given
+        given(usersRepository.findByUsername(anyString()))
+                .willReturn(Optional.empty());
+
+        //when
+        Assertions.assertThrows(AuthException.class,
+                () -> userService.getUserInfo(anyString()));
+
+        //then
+        then(usersRepository).should(times(1)).findByUsername(anyString());
+        assertEquals(AuthErrorStatus.USER_NOT_FOUND.getMessage(),"해당 유저를 찾을 수 없습니다.");
+
     }
 }
