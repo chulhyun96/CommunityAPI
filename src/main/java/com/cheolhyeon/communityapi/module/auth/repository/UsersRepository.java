@@ -23,5 +23,11 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
             "where u.username = :username")
     Optional<MyInfoResponse> findMyInfoByUsernameWithPostCommentDto(String username);
 
+    @Query("select new com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfoResponse(" +
+            "u.username, " +
+            "(select count(p) from Post p where p.user = u), " +
+            "(select count(c) from Comment c where c.user = u)) " +
+            "from Users u " +
+            "where u.username = :username")
     Optional<GeneralUserInfoResponse> findUserInfoByUsernameWithPostCommentDto(String username);
 }

@@ -1,20 +1,20 @@
 package com.cheolhyeon.communityapi.module.auth.dto.user;
 
-import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import lombok.Getter;
 
 @Getter
 public class GeneralUserInfoResponse {
     private final String username;
-    private final int countOfPosts;
-    private final int countOfComments;
+    private final Long countOfPosts;
+    private final Long countOfComments;
 
-    private GeneralUserInfoResponse(Users user) {
-        this.username = user.getUsername();
-        this.countOfPosts = user.getPosts().size();
-        this.countOfComments = user.getComments().size();
+    private GeneralUserInfoResponse(String username, Long countOfPosts, Long countOfComments) {
+        this.username = username;
+        this.countOfPosts = countOfPosts;
+        this.countOfComments = countOfComments;
     }
-    public static GeneralUserInfoResponse create(Users user) {
-        return new GeneralUserInfoResponse(user);
+
+    public static GeneralUserInfoResponse create(String username, Long countOfPosts, Long countOfComments) {
+        return new GeneralUserInfoResponse(username, countOfPosts, countOfComments);
     }
 }
