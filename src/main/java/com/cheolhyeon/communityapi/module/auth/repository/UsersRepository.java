@@ -13,21 +13,25 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
     Optional<Users> findById(Long id);
 
-    @Query("select new com.cheolhyeon.communityapi.module.auth.dto.user.MyInfoResponse(" +
-            "u.username, " +
-            "u.phoneNumber, " +
-            "u.role, " +
-            "(select count(p) from Post p where p.user = u), " +
-            "(select count(c) from Comment c where c.user = u)) " +
-            "from Users u " +
-            "where u.username = :username")
+    @Query("""
+            SELECT new com.cheolhyeon.communityapi.module.auth.dto.user.MyInfoResponse(
+            u.username, 
+            u.phoneNumber, 
+            u.role, 
+            (SELECT count(p) FROM Post p WHERE p.user = u), 
+            (SELECT count(c) FROM Comment c WHERE c.user = u))
+            FROM Users u 
+            WHERE u.username = :username
+            """)
     Optional<MyInfoResponse> findMyInfoByUsernameWithPostCommentDto(String username);
 
-    @Query("select new com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfoResponse(" +
-            "u.username, " +
-            "(select count(p) from Post p where p.user = u), " +
-            "(select count(c) from Comment c where c.user = u)) " +
-            "from Users u " +
-            "where u.username = :username")
+    @Query("""
+            SELECT new com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfoResponse(
+            u.username, 
+            (SELECT count(p) FROM Post p WHERE p.user = u), 
+            (SELECT count(c) FROM Comment c WHERE c.user = u))
+            FROM Users u 
+            WHERE u.username = :username
+            """)
     Optional<GeneralUserInfoResponse> findUserInfoByUsernameWithPostCommentDto(String username);
 }

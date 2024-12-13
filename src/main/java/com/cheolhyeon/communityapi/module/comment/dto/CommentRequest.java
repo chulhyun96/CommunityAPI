@@ -3,8 +3,10 @@ package com.cheolhyeon.communityapi.module.comment.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+@NoArgsConstructor
 @Getter
 public class CommentRequest {
     @NotBlank(message = "내용을 입력해주세요.")

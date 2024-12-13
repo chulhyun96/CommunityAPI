@@ -8,15 +8,12 @@ import com.cheolhyeon.communityapi.module.comment.entity.Comment;
 import com.cheolhyeon.communityapi.module.comment.repository.CommentRepository;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
-import jakarta.transaction.Transactional;
-import org.apache.catalina.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
@@ -25,8 +22,8 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
-@Transactional
-@ActiveProfiles("test")
+
+
 @ExtendWith(MockitoExtension.class)
 class CommentServiceTest {
     @Mock
