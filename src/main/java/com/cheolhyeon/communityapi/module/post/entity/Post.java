@@ -29,7 +29,6 @@ public class Post extends BaseEntity {
     private Users user;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
-    @OrderBy("id desc")
     private final List<Comment> comments = new ArrayList<>();
 
     @Length(max = 255)
@@ -57,5 +56,9 @@ public class Post extends BaseEntity {
         this.comments.add(comment);
         this.commentCount = this.comments.size();
         comment.assignPost(this);
+    }
+
+    public String getWriter() {
+        return getUser().getUsername();
     }
 }

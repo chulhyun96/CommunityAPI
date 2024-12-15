@@ -11,8 +11,10 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+        default_batch_fetch_size: 500
     hibernate:
       ddl-auto: update
+
 
 jwt:
   secret: vsV8Po339xySOEBY7Ic8Gx+hpfwARC5MxHvm8HoC9QymrUK7vpU0EUTH9+gj/cBv6S9sTyWgYOGIPBqWI4UTXA==
