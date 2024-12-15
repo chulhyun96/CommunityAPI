@@ -4,8 +4,6 @@ import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.auth.exception.AuthException;
 import com.cheolhyeon.communityapi.module.auth.repository.UsersRepository;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
-import com.cheolhyeon.communityapi.module.comment.entity.Comment;
-import com.cheolhyeon.communityapi.module.comment.repository.CommentRepository;
 import com.cheolhyeon.communityapi.module.post.dto.PostGetResponse;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
@@ -58,7 +56,7 @@ public class PostService {
         int limit = pageable.getPageSize();
         int offset = pageable.getPageNumber() * pageable.getPageSize();
 
-        List<Post> postList = postRepository.findAllByCommentsCount(limit, offset);
+        List<Post> postList = postRepository.findAllSortedByCommentsCount(limit, offset);
 
         List<PostResponse> postResponseList = postList.stream()
                 .map(PostResponse::create)
