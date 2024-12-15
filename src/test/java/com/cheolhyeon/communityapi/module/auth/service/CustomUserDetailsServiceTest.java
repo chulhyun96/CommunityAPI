@@ -137,14 +137,15 @@ class CustomUserDetailsServiceTest {
                 .posts(new ArrayList<>())
                 .comments(new ArrayList<>())
                 .build();
-        given(usersRepository.findByUsername(anyString()))
-                .willReturn(Optional.of(user));
+        given(usersRepository.findUserInfoByUsernameWithPostCommentDto(anyString()))
+                .willReturn(Optional.of(GeneralUserInfoResponse.create("Test1", 1L, 1L)));
 
         //when
         GeneralUserInfoResponse userInfo = userService.getUserInfo(user.getUsername());
 
         //then
-        then(usersRepository).should(times(1)).findByUsername(anyString());
+        then(usersRepository).should(times(1))
+                .findUserInfoByUsernameWithPostCommentDto(anyString());
         assertEquals(userInfo.getUsername(), user.getUsername());
 
     }
@@ -152,7 +153,7 @@ class CustomUserDetailsServiceTest {
     @DisplayName("타 유저 정보 조회 - 실패")
     void fail_get_UserInfo() {
         //given
-        given(usersRepository.findByUsername(anyString()))
+        given(usersRepository.findUserInfoByUsernameWithPostCommentDto(anyString()))
                 .willReturn(Optional.empty());
 
         //when
@@ -160,7 +161,8 @@ class CustomUserDetailsServiceTest {
                 () -> userService.getUserInfo(anyString()));
 
         //then
-        then(usersRepository).should(times(1)).findByUsername(anyString());
+        then(usersRepository).should(times(1))
+                .findUserInfoByUsernameWithPostCommentDto(anyString());
         assertEquals(AuthErrorStatus.USER_NOT_FOUND.getMessage(),"해당 유저를 찾을 수 없습니다.");
 
     }
