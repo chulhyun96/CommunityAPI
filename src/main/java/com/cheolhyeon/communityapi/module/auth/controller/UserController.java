@@ -3,12 +3,10 @@ package com.cheolhyeon.communityapi.module.auth.controller;
 import com.cheolhyeon.communityapi.module.auth.dto.CustomUserDetails;
 import com.cheolhyeon.communityapi.module.auth.dto.user.GeneralUserInfoResponse;
 import com.cheolhyeon.communityapi.module.auth.dto.user.MyInfoResponse;
-import com.cheolhyeon.communityapi.module.auth.dto.user.UpdateMyInfoRequest;
 import com.cheolhyeon.communityapi.module.auth.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

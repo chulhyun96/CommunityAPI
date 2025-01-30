@@ -1,8 +1,8 @@
 package com.cheolhyeon.communityapi.module.post.entity;
 
+import com.cheolhyeon.communityapi.common.exception.BaseEntity;
 import com.cheolhyeon.communityapi.module.auth.entity.Users;
 import com.cheolhyeon.communityapi.module.comment.entity.Comment;
-import com.cheolhyeon.communityapi.common.BaseEntity;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

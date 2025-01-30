@@ -1,7 +1,7 @@
 package com.cheolhyeon.communityapi.module.auth.exception;
 
+import com.cheolhyeon.communityapi.common.exception.BaseException;
 import com.cheolhyeon.communityapi.module.auth.type.AuthErrorStatus;
-import com.cheolhyeon.communityapi.common.BaseException;
 import lombok.Getter;
 
 @Getter

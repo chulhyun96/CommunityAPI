@@ -1,9 +1,9 @@
 package com.cheolhyeon.communityapi.module.auth.entity;
 
+import com.cheolhyeon.communityapi.common.exception.BaseEntity;
 import com.cheolhyeon.communityapi.module.auth.dto.auth.AuthRequest;
 import com.cheolhyeon.communityapi.module.auth.type.AuthorityPolicy;
 import com.cheolhyeon.communityapi.module.comment.entity.Comment;
-import com.cheolhyeon.communityapi.common.BaseEntity;
 import com.cheolhyeon.communityapi.module.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,10 +31,12 @@ public class Users extends BaseEntity {
     @Column(nullable = false, length = 15)
     private String phoneNumber;
 
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
     private List<Post> posts = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "user",  cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
     private List<Comment> comments = new ArrayList<>();

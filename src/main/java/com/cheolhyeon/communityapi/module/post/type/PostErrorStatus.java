@@ -1,9 +1,9 @@
 package com.cheolhyeon.communityapi.module.post.type;
 
-import com.cheolhyeon.communityapi.common.ErrorStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
+import com.cheolhyeon.communityapi.common.exception.ErrorStatus;
 
 @AllArgsConstructor
 @Getter

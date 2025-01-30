@@ -1,7 +1,6 @@
 package com.cheolhyeon.communityapi.module.post.controller;
 
-import com.cheolhyeon.communityapi.common.ErrorResponseBindingResult;
-import com.cheolhyeon.communityapi.module.post.dto.PostGetResponse;
+import com.cheolhyeon.communityapi.common.exception.ErrorResponseBindingResult;
 import com.cheolhyeon.communityapi.module.post.dto.PostRequest;
 import com.cheolhyeon.communityapi.module.post.dto.PostResponse;
 import com.cheolhyeon.communityapi.module.post.service.PostService;

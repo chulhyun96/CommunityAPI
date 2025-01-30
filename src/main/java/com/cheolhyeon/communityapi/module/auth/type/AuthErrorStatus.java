@@ -1,8 +1,8 @@
 package com.cheolhyeon.communityapi.module.auth.type;
 
-import com.cheolhyeon.communityapi.common.ErrorStatus;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
+import com.cheolhyeon.communityapi.common.exception.ErrorStatus;
 
 @Getter
 public enum AuthErrorStatus implements ErrorStatus {

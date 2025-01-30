@@ -1,4 +1,4 @@
-package com.cheolhyeon.communityapi.common;
+package com.cheolhyeon.communityapi.common.exception;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

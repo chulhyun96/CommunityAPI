@@ -12,6 +12,7 @@ import com.cheolhyeon.communityapi.module.post.exception.PostException;
 import com.cheolhyeon.communityapi.module.post.repository.PostRepository;
 import com.cheolhyeon.communityapi.module.post.type.PostErrorStatus;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -30,8 +32,12 @@ public class PostService {
 
     @Transactional
     public Post save(PostRequest postRequest, String username) {
+        log.info("Saving post: Post = {}, User = {}", postRequest, username);
         Users findUser = usersRepository.findByUsername(username).orElseThrow(
-                () -> new AuthException(AuthErrorStatus.USER_NOT_FOUND)
+                () -> {
+                    log.info("User not found for username = {}", username);
+                    return new AuthException(AuthErrorStatus.USER_NOT_FOUND);
+                }
         );
 
         Post post = Post.create(postRequest);
@@ -40,8 +46,12 @@ public class PostService {
     }
 
     public PostGetResponse getPost(Long id) {
+        log.info("Getting post: Post = {}", id);
         Post post = postRepository.findPostWithCommentsAndUsers(id).orElseThrow(
-                () -> new PostException(PostErrorStatus.POST_NOT_FOUND)
+                () -> {
+                    log.info("Post not found: Post = {}", id);
+                    return new PostException(PostErrorStatus.POST_NOT_FOUND);
+                }
         );
         String username = post.getWriter();
         return PostGetResponse.create(post, username, post.getComments());

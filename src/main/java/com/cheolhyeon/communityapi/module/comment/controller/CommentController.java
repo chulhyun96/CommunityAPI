@@ -1,6 +1,6 @@
 package com.cheolhyeon.communityapi.module.comment.controller;
 
-import com.cheolhyeon.communityapi.common.ErrorResponseBindingResult;
+import com.cheolhyeon.communityapi.common.exception.ErrorResponseBindingResult;
 import com.cheolhyeon.communityapi.module.comment.dto.CommentRequest;
 import com.cheolhyeon.communityapi.module.comment.service.CommentService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.cheolhyeon.communityapi.module.post.exception;
 
-import com.cheolhyeon.communityapi.common.BaseException;
+import com.cheolhyeon.communityapi.common.exception.BaseException;
 import com.cheolhyeon.communityapi.module.post.type.PostErrorStatus;
 import lombok.Getter;
 

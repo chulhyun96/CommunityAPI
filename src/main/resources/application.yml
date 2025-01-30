@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   datasource:
     url: jdbc:mariadb://localhost:3306/community?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
@@ -18,3 +20,8 @@ spring:
 
 jwt:
   secret: vsV8Po339xySOEBY7Ic8Gx+hpfwARC5MxHvm8HoC9QymrUK7vpU0EUTH9+gj/cBv6S9sTyWgYOGIPBqWI4UTXA==
+
+# 전체 로깅 레벨
+#logging:
+#  level:
+#    root: trace

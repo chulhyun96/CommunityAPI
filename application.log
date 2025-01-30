@@ -1,0 +1,459 @@
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:00 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:00 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-6] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-6] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:01 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:01 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:02 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:02 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-6] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-6] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:03 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:03 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:04 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:04 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-6] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-6] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:05 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:05 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:06 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:06 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-6] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-6] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:07 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:07 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:08 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:08 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:09 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:09 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:10 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:10 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:11 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:11 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:12 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:12 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:13 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:13 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:14 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:14 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:15 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:15 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:16 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:16 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:17 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:17 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:17 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:17 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:17 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:17 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:17 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:17 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-1] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-1] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-1] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-10] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:18 TRACE [http-nio-8080-exec-10] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:18 INFO  [http-nio-8080-exec-10] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:19 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:19 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:19 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:19 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-9] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-9] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-9] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:21 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:21 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-8] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-8] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-8] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-2] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-2] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-2] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:22 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:22 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:23 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:23 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-6] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-6] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-6] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-5] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-5] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-5] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-4] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-4] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-4] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-3] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:24 TRACE [http-nio-8080-exec-3] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:24 INFO  [http-nio-8080-exec-3] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:25 TRACE [http-nio-8080-exec-7] c.c.c.m.a.s.CustomAuthenticationFilter - Did not match request to Ant [pattern='/login', POST]
+2025-01-28 18:27:25 TRACE [http-nio-8080-exec-7] c.c.c.common.log.LoggingFilter - Request URL: /signup/user, Method: POST, Body: {  "username" : "Hello",  "password": "hello123",  "phoneNumber": "010-1232-4567"}
+2025-01-28 18:27:25 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - Saving user Hello
+2025-01-28 18:27:25 INFO  [http-nio-8080-exec-7] c.c.c.m.a.s.CustomUserDetailsService - User already exists : Hello
+2025-01-28 18:27:54 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-28 18:27:54 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-28 18:27:54 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
